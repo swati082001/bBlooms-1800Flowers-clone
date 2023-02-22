@@ -66,27 +66,27 @@ userRouter.post("/login", async(req, res)=>{
 })
 
 
-userRouter.patch("/update/:id", async (req, res) =>{
-    try{
-        const ID = req.params.id;
-        const payload = req.body;
-        await UserModel.findByIdAndUpdate({_id:ID}, payload);
-        res.send("User has been updated");
-    }
-    catch(err){
-        res.send(err.message);
-    }
-})
+// userRouter.patch("/update/:id", async (req, res) =>{
+//     try{
+//         const ID = req.params.id;
+//         const payload = req.body;
+//         await UserModel.findByIdAndUpdate({_id:ID}, payload);
+//         res.send("User has been updated");
+//     }
+//     catch(err){
+//         res.send(err.message);
+//     }
+// })
 
-userRouter.delete("/delete/:id", async (req, res) =>{
-    try{
-        const ID = req.params.id;
-        await UserModel.findByIdAndDelete({_id:ID});
-        res.send("User has been deleted");
-    }
-    catch(err){
-        res.send(err.message);
-    }
-})
+// userRouter.delete("/delete/:id", async (req, res) =>{
+//     try{
+//         const ID = req.params.id;
+//         await UserModel.findByIdAndDelete({_id:ID});
+//         res.send("User has been deleted");
+//     }
+//     catch(err){
+//         res.send(err.message);
+//     }
+// })
 
 module.exports = {userRouter};

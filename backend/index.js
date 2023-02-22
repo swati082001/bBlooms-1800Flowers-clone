@@ -1,6 +1,10 @@
 const express = require("express");
 const {connection} = require("./configs/db");
 const {userRouter} = require("./Route/user.route");
+const {bestsellingRouter} = require("./Route/Products/Birthday/bestselling.route");
+const { authentication } = require("./Middleware/authenticate.middleware");
+const { birthflowerRouter } = require("./Route/Products/Birthday/birthflower.route");
+const { allflowerRouter } = require("./Route/Products/Flowers/allflower.route");
 require("dotenv").config();
 
 
@@ -13,6 +17,10 @@ app.get("/", (req, res)=>{
 
 
 app.use("/users", userRouter);
+// app.use(authentication);
+app.use("/products/birthday", bestsellingRouter);
+app.use("/products/birthflower", birthflowerRouter);
+app.use("/products/allflower", allflowerRouter)
 
 
 app.listen(process.env.port, async()=>{
