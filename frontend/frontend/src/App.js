@@ -1,15 +1,13 @@
 
-import './App.css';
-import Cart from './pages/CART/Cart';
-import Birthday from "./pages/Birthday/ProductPage"
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      {/* <Cart/> */}
-      <Birthday/>
+      
     </div>
   );
+
 }
 
 export default App;
