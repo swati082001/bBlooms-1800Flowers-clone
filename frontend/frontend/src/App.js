@@ -1,11 +1,13 @@
 
 import './App.css';
 import Cart from './pages/CART/Cart';
+import Birthday from "./pages/Birthday/ProductPage"
 
 function App() {
   return (
     <div className="App">
-      <Cart/>
+      {/* <Cart/> */}
+      <Birthday/>
     </div>
   );
 }
