@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  grid,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Text,
-  WrapItem,
-} from "@chakra-ui/react";
+import {Button,grid,Menu,MenuButton,MenuItem,MenuList,Text,WrapItem,} from "@chakra-ui/react";
 import { ArrowRightIcon, ChevronDownIcon } from "@chakra-ui/icons";
 
 const Sympathy= () => {
