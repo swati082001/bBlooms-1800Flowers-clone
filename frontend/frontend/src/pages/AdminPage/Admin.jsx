@@ -11,82 +11,101 @@ import styles from "..//..//Styles/Admin.module.css";
 import AdminNavbar from "./AdminNavbar";
 import AdminList from "./AdminList";
 import Dashboard from "./Dashboard";
+import ProductCharts from "./ProductCharts";
+import LocationPage from "./LocationPage";
 
 const Admin = () => {
   let [dashboard, setDashboard] = useState(true);
   let [adminList, setAdminList] = useState(false);
-  let handleAdminList = () => {
-    setDashboard(false);
-    setAdminList(true);
-  };
+  let [products, setProducts] = useState(false);
+  let [location, setLocation] = useState(false);
+
   let handleDashboard = () => {
     setDashboard(true);
     setAdminList(false);
+    setProducts(false);
   };
+  let handleAdminList = () => {
+    setDashboard(false);
+    setAdminList(true);
+    setProducts(false);
+    setLocation(false);
+  };
+
+  let handleProducts = () => {
+    setDashboard(false);
+    setAdminList(false);
+    setProducts(true);
+    setLocation(false);
+  };
+
+  let handleLocation = () => {
+    setDashboard(false);
+    setAdminList(false);
+    setProducts(false);
+    setLocation(true);
+  };
+
   console.log(adminList);
   return (
     <div>
       <AdminNavbar />
       <div className={styles.mobileSidebar}>
-        <Box mt={6} h="700px" color={"white"}>
-          <VStack
-            divider={<StackDivider borderColor="grey.200" />}
-            spacing={10}
-            align="stretch"
-          >
+        <Box mt={4} h="550px" bgColor={"#65388b"}>
+          <VStack spacing={11} align="stretch">
             <Button
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               <AiOutlineDashboard />
             </Button>
             <Button
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               <RiProductHuntLine />
             </Button>
             <Button
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               <BsShop />
             </Button>
             <Button
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               <MdOutlineCategory />
             </Button>
             <Button
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               <GoLocation />
             </Button>
             <Button
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               <FiUsers />
             </Button>
             <Button
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               <RiAdminLine />
             </Button>
@@ -94,19 +113,15 @@ const Admin = () => {
         </Box>
       </div>
       <div className={styles.sidebar}>
-        <Box mt={6} h="700px" color={"white"}>
-          <VStack
-            divider={<StackDivider borderColor="grey.200" />}
-            spacing={10}
-            align="stretch"
-          >
+        <Box mt={4} h="570px" bgColor={"#65388b"}>
+          <VStack spacing={12} align="stretch" bgColor={"#65388b"}>
             <Button
               leftIcon={<AiOutlineDashboard />}
               fontFamily="Cambria"
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
               onClick={handleDashboard}
             >
               Dashboard
@@ -114,60 +129,62 @@ const Admin = () => {
             <Button
               leftIcon={<RiProductHuntLine />}
               fontFamily="Cambria"
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleProducts}
             >
               Products
             </Button>
             <Button
               leftIcon={<BsShop />}
               fontFamily="Cambria"
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               Shops
             </Button>
             <Button
               leftIcon={<MdOutlineCategory />}
               fontFamily="Cambria"
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               Categories
             </Button>
             <Button
               leftIcon={<GoLocation />}
               fontFamily="Cambria"
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleLocation}
             >
               Location
             </Button>
             <Button
               leftIcon={<FiUsers />}
               fontFamily="Cambria"
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
             >
               Users List
             </Button>
             <Button
               leftIcon={<RiAdminLine />}
               fontFamily="Cambria"
-              bgColor="white"
-              color="black"
+              bgColor="#65388b"
+              color="white"
               width="100%"
-              _hover={{ bgColor: "#65388b", color: "white" }}
+              _hover={{ bgColor: "white", color: "black" }}
               onClick={handleAdminList}
             >
               Admin List
@@ -177,6 +194,8 @@ const Admin = () => {
       </div>
       {dashboard && <Dashboard />}
       {adminList && <AdminList />}
+      {products && <ProductCharts />}
+      {location && <LocationPage />}
     </div>
   );
 };

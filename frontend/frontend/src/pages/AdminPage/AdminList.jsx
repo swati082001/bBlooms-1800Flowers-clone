@@ -32,8 +32,6 @@ export default function AdminList() {
   };
 
   return (
-
-    
     <div>
       <Box width="84%" p={10} bgColor="#f7f7f7 " marginLeft="16%" h="auto">
         <Flex align={"center"} justify={"center"} bg={"#f7f7f7 "}>
@@ -96,20 +94,15 @@ export default function AdminList() {
                     <Button
                       loadingText="Submitting"
                       size="lg"
-                      bg={"#65388b"}
+                      bg={"teal"}
                       color={"white"}
                       _hover={{
-                        bg: "#65388b",
+                        bg: "teal",
                       }}
                       type="submit"
                     >
                       Sign up
                     </Button>
-                  </Stack>
-                  <Stack pt={6}>
-                    <Text align={"center"}>
-                      Already a user? <Link color={"blue.400"}>Login</Link>
-                    </Text>
                   </Stack>
                 </form>
               </Stack>

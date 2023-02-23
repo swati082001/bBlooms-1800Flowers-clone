@@ -8,7 +8,7 @@ const AdminNavbar = () => {
     <div className={styles.navbar}>
       <Box
         width={"100%"}
-        height="50px"
+        height="60px"
         color={"black"}
         boxShadow=" rgba(0, 0, 0, 0.24) 0px 3px 8px"
         bgColor="white"
@@ -18,7 +18,7 @@ const AdminNavbar = () => {
             <Image
               src={logo}
               w={{ base: "100px", md: "150px", lg: "200px" }}
-              h="50px"
+              h="60px"
               alt="logo"
               ml="20px"
             />
