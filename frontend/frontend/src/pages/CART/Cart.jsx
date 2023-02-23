@@ -11,7 +11,7 @@ const Cart = () => {
             <Box width="60%" margin={"auto"}  h={"900px"} p={4}>
              
                 <Text textStyle="Carthead">Shopping Cart</Text>
-                <Card bg={"white"} mt="20px" p={4} >
+                <Card bg={"white"} mt="20px" p={4} border="2px solid #65388b">
                   <Text textStyle="Cardtop">Item 1 out of 1:</Text>
                   <hr/>
                   
@@ -50,21 +50,23 @@ const Cart = () => {
                   </Box>
                 </Card>
 
-                <Card bg={"white"} mt="20px" p={4}>
+                <Card bg={"white"} mt="20px" p={4} border="2px solid #65388b">
                   
                   <Text mb={"20px"} textStyle="Cardtop">Cart Items: 1</Text>
-                  <Button bg="#00c876" color={"white"}>PROCEED TO CHECKOUT</Button>
+                  <Button bg="#00c876" color={"white"} _hover={{bg:"#00c876" ,color:"white",boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>PROCEED TO CHECKOUT</Button>
 
                   
                 </Card>
              
             </Box>
+
+            {/* 2ndpart */}
             <Box width="40%" margin={"auto"}  h={"auto"} p={4}>
               <Card>
-              <Button bg="#00c876" color={"white"}>PROCEED TO CHECKOUT</Button>
+              <Button bg="#00c876" color={"white"} _hover={{bg:"#00c876" ,color:"white",boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>PROCEED TO CHECKOUT</Button>
               </Card>
 
-              <Card mt={"20px"} p={4}>
+              <Card mt={"20px"} p={4} border="2px solid #65388b">
                 <Text mb={"20px"} textStyle="Cardtop">Order Summary</Text>
                 <InputGroup>
                   <Input placeholder="Add Coupon Code"/>
