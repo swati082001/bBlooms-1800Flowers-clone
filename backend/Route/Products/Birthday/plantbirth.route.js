@@ -9,7 +9,7 @@ const plantbirthRouter = express.Router();
 plantbirthRouter.get("/", async(req, res)=>{
     try {
         const data = await PlantbirthModel.find();
-        res.send("Get all products")
+        res.send(data)
     } 
     catch(err){
         res.send(err.message);

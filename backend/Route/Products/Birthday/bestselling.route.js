@@ -6,7 +6,7 @@ const bestsellingRouter = express.Router();
 bestsellingRouter.get("/", async(req, res)=>{
     try {
         const data = await BestsellingModel.find();
-        res.send("Get all products")
+        res.send(data)
     } 
     catch(err){
         res.send(err.message);

@@ -8,7 +8,7 @@ const allflowerRouter = express.Router();
 allflowerRouter.get("/", async(req, res)=>{
     try {
         const data = await AllflowerModel.find();
-        res.send("Get all products")
+        res.send(data)
     } 
     catch(err){
         res.send(err.message);
