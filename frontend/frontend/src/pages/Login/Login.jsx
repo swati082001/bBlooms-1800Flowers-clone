@@ -11,7 +11,7 @@ import { FcApproval } from "react-icons/fc";
 
 export const Login = () => {
 
-    return <Box h="100vh" zIndex="0" display="flex" alignItems="center" justifyContent="space-around" border=" 1px solid black" background="linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/bg40.jpg')">
+    return <Box h="100vh" zIndex="0" display="flex" alignItems="center" justifyContent="space-around" border=" 1px solid black" background="linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/bg40.jpg')" >
 
         <Box w="30%" h='90%' zIndex="1" bg="white" opacity="0.8" borderRadius="10px"  border=" 1px solid black" align="center"   >
             <Image w="50%"  display="block" margin="auto" mt="20px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/bltce6d6c480577e10e/5d4866eff9ece57fa9a82245/flowers.png?quality=60&auto=webp&optimize={medium}" alt="1800 flowers" />
