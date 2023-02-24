@@ -1,13 +1,14 @@
-import { Box, Link } from "@chakra-ui/react"
+import { Box, Link, Text, Image } from "@chakra-ui/react"
 
 export const Footer = () => {
 
-    return <Box bg="purple.600" display="flex" justifyContent="space-around" >
+    return <Box p="20px" color="white" mt="50px" bg="purple.700" display="flex" justifyContent="space-around" >
 
         <Box>
             <ul style={{ textAlign: "left" }} >
+                <Text fontWeight="bold" >MORE WAYS TO SHOP</Text>
                 <Link><li>Flower Delivery Same Day</li></Link>
-                <Link><li>Flowers Arrangement</li></Link>
+                <Link><li>Flowers Arrangements</li></Link>
                 <Link><li>Sympathy Flowers & Gifts</li></Link>
                 <Link><li>Roses</li></Link>
                 <Link><li>Birthday Flowers & Gifts</li></Link>
@@ -26,82 +27,54 @@ export const Footer = () => {
 
         <Box>
             <ul style={{ textAlign: "left" }} >
-                <li>Flower Delivery Same Day</li>
-                <li>Flowers Arrangement</li>
-                <li>Sympathy Flowers & Gifts</li>
-                <li>Roses</li>
-                <li>Birthday Flowers & Gifts</li>
-                <li>Flower Subscription</li>
-                <li>Plants</li>
-                <li>Gifts Basket and Food</li>
-                <li>Mother's Day Flowers</li>
-                <li>International Flower Delivery</li>
-                <li>Find a local Florist</li>
-                <li>Corporate Gift</li>
-                <li>Chocolate Covered Strawberries</li>
-                <li>Marketplace Sellers</li>
-                <li>Sitemap</li>
+                <Text fontWeight="bold" >CUSTOMER SERVICE</Text>
+                <Link><li>Customer Service</li></Link>
+                <Link><li>COVID-19 Updates</li></Link>
+                <Link><li>eGifts Cards</li></Link>
+                <Link><li>Contact Us</li></Link>
+                <Link><li>Do not Sell My Personl Information</li></Link>
+                <Link><li>Allergy Warning</li></Link>
+                <Link><li>Funeral/Sympathy Advisor</li></Link>
+                <Link><li>Smile Gaurantee</li></Link>
+
             </ul>
         </Box>
 
         <Box>
             <ul style={{ textAlign: "left" }} >
-                <Link><li>Flower Delivery Same Day</li></Link>
-                <Link><li>Flowers Arrangement</li></Link>
-                <Link><li>Sympathy Flowers & Gifts</li></Link>
-                <Link><li>Roses</li></Link>
-                <Link><li>Birthday Flowers & Gifts</li></Link>
-                <Link><li>Flower Subscription</li></Link>
-                <Link><li>Plants</li></Link>
-                <Link><li>Gifts Basket and Food</li></Link>
-                <Link><li>Mother's Day Flowers</li></Link>
-                <Link><li>International Flower Delivery</li></Link>
-                <Link><li>Find a local Florist</li></Link>
-                <Link><li>Corporate Gift</li></Link>
-                <Link><li>Chocolate Covered Strawberries</li></Link>
-                <Link><li>Marketplace Sellers</li></Link>
-                <Link><li>Sitemap</li></Link>
+                <Text fontWeight="bold" >OUR STORES</Text>
+                <Link><li>Store Locator</li></Link>
+                <Link><li>Franchise Oppertunities</li></Link>
+                <Link><li>Local DIY Events</li></Link>
+            </ul>
+        </Box>
+
+
+        <Box>
+            <ul style={{ textAlign: "left" }} >
+                <Text fontWeight="bold" >CORPORATE</Text>
+                <Link><li>About Us</li></Link>
+                <Link><li>Our Brands</li></Link>
+                <Link><li>Social Responsibility</li></Link>
+                <Link><li>Careers</li></Link>
+                <Link><li>News & Media</li></Link>
+                <Link><li>Investors</li></Link>
+
             </ul>
         </Box>
 
         <Box>
-            <ul style={{ textAlign: "left" }} >
-                <li>Flower Delivery Same Day</li>
-                <li>Flowers Arrangement</li>
-                <li>Sympathy Flowers & Gifts</li>
-                <li>Roses</li>
-                <li>Birthday Flowers & Gifts</li>
-                <li>Flower Subscription</li>
-                <li>Plants</li>
-                <li>Gifts Basket and Food</li>
-                <li>Mother's Day Flowers</li>
-                <li>International Flower Delivery</li>
-                <li>Find a local Florist</li>
-                <li>Corporate Gift</li>
-                <li>Chocolate Covered Strawberries</li>
-                <li>Marketplace Sellers</li>
-                <li>Sitemap</li>
-            </ul>
-        </Box>
+            <Text fontWeight="bold" >FOLLOW US</Text>
+            <Box display="flex" gap="20px" mt="20px" >
+                <Link> <Image src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt787e53ec7675db95/5ee1016e26fd9f3b64a5abe7/social-icon-twitter.png" alt="twitter" /> </Link>
+               <Link> <Image src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt71c1a01174910073/5ee101831579a83a8b80b9ad/social-icon-facebook.png" alt="facebook" /> </Link>
+               <Link> <Image src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt78b7b39043ac2de3/5ee101965cffd6317204ad4a/social-icon-instagram.png" alt="instagram" /> </Link>
+                <Link> <Image src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt6ae8236f023d5359/5ee101a4f2c45903a4be0b8b/social-icon-pinterest.png" alt="pinterest" /> </Link>
+            </Box>
+            <Box>
+                <Link> <Image src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/bltbd439ba082738790/5ee101b758284c442bf7faea/social-icon-youtube.png" alt="youtube" /> </Link>
 
-        <Box>
-            <ul style={{ textAlign: "left" }} >
-                <li>Flower Delivery Same Day</li>
-                <li>Flowers Arrangement</li>
-                <li>Sympathy Flowers & Gifts</li>
-                <li>Roses</li>
-                <li>Birthday Flowers & Gifts</li>
-                <li>Flower Subscription</li>
-                <li>Plants</li>
-                <li>Gifts Basket and Food</li>
-                <li>Mother's Day Flowers</li>
-                <li>International Flower Delivery</li>
-                <li>Find a local Florist</li>
-                <li>Corporate Gift</li>
-                <li>Chocolate Covered Strawberries</li>
-                <li>Marketplace Sellers</li>
-                <li>Sitemap</li>
-            </ul>
+            </Box>
         </Box>
 
     </Box>
