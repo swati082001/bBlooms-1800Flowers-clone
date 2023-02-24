@@ -1,12 +1,11 @@
-import { Box, Heading, Text, Image, Flex, Input, Button, Link } from "@chakra-ui/react";
-import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import { Box, Heading, Text, Image,  Input,  Link } from "@chakra-ui/react";
+// import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
     FormHelperText,
 } from '@chakra-ui/react'
-import { FcApproval } from "react-icons/fc";
+//import { FcApproval } from "react-icons/fc";
 // import { GiSchoolBag, GiSuitcase } from "react-icons/gi";
 
 export const Login = () => {

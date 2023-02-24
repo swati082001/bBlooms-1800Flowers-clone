@@ -1,21 +1,5 @@
 import { ArrowRightIcon } from "@chakra-ui/icons";
-import {
-  Button,
-  ButtonGroup,
-  Text,
-  Image,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Heading,
-  Stack,
-  Container,
-  Box,
-  Radio,
-  RadioGroup,
-  Checkbox,
-} from "@chakra-ui/react";
+import {  Text, Image, Card, CardBody,Divider,Stack,Radio,RadioGroup,Checkbox,} from "@chakra-ui/react";
 import React from "react";
 
 const SingleProductPage = () => {
