@@ -1,8 +1,8 @@
-
 import {
   ArrowRightIcon,
   CalendarIcon,
   ChevronDownIcon,
+  ChevronRightIcon,
   TriangleDownIcon,
 } from "@chakra-ui/icons";
 import {
@@ -27,15 +27,17 @@ import {
   MenuButton,
   Input,
   Center,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Breadcrumb,
 } from "@chakra-ui/react";
-
 import React from "react";
 
-const SingleProductPage = () => {
+const SingleCake = () => {
   const [value, setValue] = React.useState("1");
   return (
     <div>
-      <p
+      {/* <p
         style={{
           marginLeft: "10px",
           textAlign: "left",
@@ -48,12 +50,40 @@ const SingleProductPage = () => {
         Home <ArrowRightIcon boxSize={2} /> Birthday{" "}
         <ArrowRightIcon boxSize={2} /> Birthday flower{" "}
         <ArrowRightIcon boxSize={2} /> Floral Embrace™
-      </p>
+      </p> */}
+
+      <Breadcrumb
+        color="#65388B"
+        spacing="3px"
+        fontSize={14}
+        ml={4}
+        separator={<ChevronRightIcon />}
+      >
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#">Birthday</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#">Birthday Cake Delivery</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink href="#">Bake Me A Wish! Triple Chocolate Brownie Cake</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+
+
+
       <div style={{ 
-        border: "1px solid teal",
+       border: "1px solid teal",
          display: "flex", gap: "15px" }}>
         <Card
-          maxW="md"
+          maxW="lg"
+          
           ml={20}
          border="1px solid "
         >
@@ -366,4 +396,4 @@ const SingleProductPage = () => {
   );
 };
 
-export default SingleProductPage;
+export default SingleCake;
