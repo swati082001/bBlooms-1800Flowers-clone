@@ -78,15 +78,15 @@ userRouter.post("/login", async(req, res)=>{
 //     }
 // })
 
-// userRouter.delete("/delete/:id", async (req, res) =>{
-//     try{
-//         const ID = req.params.id;
-//         await UserModel.findByIdAndDelete({_id:ID});
-//         res.send("User has been deleted");
-//     }
-//     catch(err){
-//         res.send(err.message);
-//     }
-// })
+userRouter.delete("/delete/:id", async (req, res) =>{
+    try{
+        const ID = req.params.id;
+        await UserModel.findByIdAndDelete({_id:ID});
+        res.send("User has been deleted");
+    }
+    catch(err){
+        res.send(err.message);
+    }
+})
 
 module.exports = {userRouter};

@@ -15,6 +15,18 @@ allsympathyRouter.get("/", async(req, res)=>{
     }
 })
 
+
+allsympathyRouter.get("/get/:id", async(req, res)=>{
+    try {
+        const ID = req.params.id;
+        const data = await AllsympathyModel.find({_id:ID});
+        res.send(data);
+    } 
+    catch(err){
+        res.send(err.message);
+    }
+})
+
 allsympathyRouter.post("/add", async(req, res)=>{
     const payload = req.body;
     try {
@@ -30,8 +42,8 @@ allsympathyRouter.patch("/update/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
         const payload = req.body;
-        await AllsympathyModel.findByIdAndUpdate({_id:ID}, payload);
-        res.send("User has been updated");
+        const data = await AllsympathyModel.findByIdAndUpdate({_id:ID}, payload);
+        res.send(data);
     }
     catch(err){
         res.send(err.message);

@@ -16,6 +16,18 @@ plantbirthRouter.get("/", async(req, res)=>{
     }
 })
 
+
+plantbirthRouter.get("/get/:id", async(req, res)=>{
+    try {
+        const ID = req.params.id;
+        const data = await PlantbirthModel.find({_id:ID});
+        res.send(data)
+    } 
+    catch(err){
+        res.send(err.message);
+    }
+})
+
 plantbirthRouter.post("/add", async(req, res)=>{
     const payload = req.body;
     try {
@@ -31,8 +43,8 @@ plantbirthRouter.patch("/update/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
         const payload = req.body;
-        await PlantbirthModel.findByIdAndUpdate({_id:ID}, payload);
-        res.send("User has been updated");
+        const data = await PlantbirthModel.findByIdAndUpdate({_id:ID}, payload);
+        res.send(data);
     }
     catch(err){
         res.send(err.message);

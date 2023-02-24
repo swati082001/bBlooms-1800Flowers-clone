@@ -13,6 +13,18 @@ bestsellingRouter.get("/", async(req, res)=>{
     }
 })
 
+
+bestsellingRouter.get("/get/:id", async(req, res)=>{
+    const ID = req.params.id;
+    try {
+        const data = await BestsellingModel.findById({_id:ID})
+        res.send(data)
+    } 
+    catch(err){
+        res.send(err.message);
+    }
+})
+
 bestsellingRouter.post("/add", async(req, res)=>{
     const payload = req.body;
     try {
@@ -28,8 +40,8 @@ bestsellingRouter.patch("/update/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
         const payload = req.body;
-        await BestsellingModel.findByIdAndUpdate({_id:ID}, payload);
-        res.send("User has been updated");
+        const data = await BestsellingModel.findByIdAndUpdate({_id:ID}, payload);
+        res.send(data);
     }
     catch(err){
         res.send(err.message);
@@ -47,12 +59,12 @@ bestsellingRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-    bestsellingRouter.get("/delete", (req, res) =>{
-            BestsellingModel.remove({size:"medium"}, (err, data)=>{
-                if(err) res.status(500).send(err);
-                else res.status(200).send(data);
-            });
-    })
+    // bestsellingRouter.get("/delete", (req, res) =>{
+    //         BestsellingModel.remove({size:"medium"}, (err, data)=>{
+    //             if(err) res.status(500).send(err);
+    //             else res.status(200).send(data);
+    //         });
+    // })
 
 
 
