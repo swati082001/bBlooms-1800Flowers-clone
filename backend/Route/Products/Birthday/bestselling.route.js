@@ -47,6 +47,13 @@ bestsellingRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
+    bestsellingRouter.get("/delete", (req, res) =>{
+            BestsellingModel.remove({size:"medium"}, (err, data)=>{
+                if(err) res.status(500).send(err);
+                else res.status(200).send(data);
+            });
+    })
+
 
 
 

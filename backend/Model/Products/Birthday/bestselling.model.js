@@ -5,7 +5,8 @@ const bestsellingSchema = mongoose.Schema({
     type:String,
     size:String,
     price:Number,
-    company:String
+    company:String,
+    user:String
 });
 
 const BestsellingModel = mongoose.model("birthday", bestsellingSchema);

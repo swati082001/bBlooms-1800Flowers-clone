@@ -50,7 +50,12 @@ bestflowerRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    bestflowerRouter.get("/delete", (req, res) =>{
+        BestflowerModel.remove({size:"large"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+})
 
 
 

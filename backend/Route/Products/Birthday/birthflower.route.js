@@ -48,7 +48,12 @@ birthflowerRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    birthflowerRouter.get("/delete", (req, res) =>{
+        BirthflowerModel.remove({size:"large"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+})
 
 
 

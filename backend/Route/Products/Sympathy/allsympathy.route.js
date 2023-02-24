@@ -49,7 +49,12 @@ allsympathyRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    allsympathyRouter.get("/delete", (req, res) =>{
+            AllsympathyModel.remove({size:"large"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+})
 
 
 

@@ -50,7 +50,12 @@ plantbirthRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    plantbirthRouter.get("/delete", (req, res) =>{
+        PlantbirthModel.remove({size:"small"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+    })
 
 
 

@@ -5,7 +5,8 @@ const allflowerSchema = mongoose.Schema({
     type:{type:String, required:true},
     size:{type:String, required:true},
     price:{type:Number, required:true},
-    company:{type:String, required:true}
+    company:{type:String, required:true},
+    user:String
 });
 
 const AllflowerModel = mongoose.model("allflower", allflowerSchema);
