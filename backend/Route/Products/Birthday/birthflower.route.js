@@ -7,7 +7,7 @@ const birthflowerRouter = express.Router();
 birthflowerRouter.get("/", async(req, res)=>{
     try {
         const data = await BirthflowerModel.find();
-        res.send("Get all products")
+        res.send(data)
     } 
     catch(err){
         res.send(err.message);
@@ -48,7 +48,12 @@ birthflowerRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    birthflowerRouter.get("/delete", (req, res) =>{
+        BirthflowerModel.remove({size:"large"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+})
 
 
 

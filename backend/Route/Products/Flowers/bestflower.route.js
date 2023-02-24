@@ -9,7 +9,7 @@ const bestflowerRouter = express.Router();
 bestflowerRouter.get("/", async(req, res)=>{
     try {
         const data = await BestflowerModel.find();
-        res.send("Get all products")
+        res.send(data)
     } 
     catch(err){
         res.send(err.message);
@@ -50,7 +50,12 @@ bestflowerRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    bestflowerRouter.get("/delete", (req, res) =>{
+        BestflowerModel.remove({size:"large"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+})
 
 
 

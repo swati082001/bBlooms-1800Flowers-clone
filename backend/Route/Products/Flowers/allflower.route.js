@@ -8,7 +8,7 @@ const allflowerRouter = express.Router();
 allflowerRouter.get("/", async(req, res)=>{
     try {
         const data = await AllflowerModel.find();
-        res.send("Get all products")
+        res.send(data)
     } 
     catch(err){
         res.send(err.message);
@@ -49,7 +49,12 @@ allflowerRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    allflowerRouter.get("/delete", (req, res) =>{
+        AllflowerModel.remove({size:"large"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+})
 
 
 

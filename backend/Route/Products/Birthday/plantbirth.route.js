@@ -9,7 +9,7 @@ const plantbirthRouter = express.Router();
 plantbirthRouter.get("/", async(req, res)=>{
     try {
         const data = await PlantbirthModel.find();
-        res.send("Get all products")
+        res.send(data)
     } 
     catch(err){
         res.send(err.message);
@@ -50,7 +50,12 @@ plantbirthRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    plantbirthRouter.get("/delete", (req, res) =>{
+        PlantbirthModel.remove({size:"small"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+    })
 
 
 
