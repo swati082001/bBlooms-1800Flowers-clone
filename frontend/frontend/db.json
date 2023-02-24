@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Vinay Rinait ",
+      "avatar": "https://avatars.githubusercontent.com/u/108014776?s=400&u=979d474245e8ae4a151e5efa5864df843cc844c3&v=4"
+    },
+    {
+      "id": 2,
+      "name": "Suneet Panigrahi ",
+      "avatar": "https://ca.slack-edge.com/T049JC010P9-U04B0DD1S04-7786c0c5f456-72"
+    },
+    {
+      "id": 3,
+      "name": "Hari singh Bisht ",
+      "avatar": "https://ca.slack-edge.com/T049JC010P9-U04BME9RC7J-a1f62cba3012-72"
+    },
+    {
+      "id": 4,
+      "name": "Priyanshu Kumar ",
+      "avatar": "https://ca.slack-edge.com/T049JC010P9-U04AXSANKJN-39cf4adb0935-72"
+    },
+    {
+      "id": 5,
+      "name": "Vivek Kumar Maurya",
+      "avatar": "https://avatars.githubusercontent.com/u/107482276?v=4"
+    }
+  ]
+}

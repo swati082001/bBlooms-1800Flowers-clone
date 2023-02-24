@@ -1,21 +1,22 @@
-.cart{
+.Checkout{
     background-color: #f4f4f4;
-    width: "100%";
+    width: 100%;
 }
+
 
 /* medium */
 @media all and (min-width:620px) and (max-width:1024px){
-    .cart{
+    .Checkout{
         background-color: #f4f4f4;
-        width: "100%";
+        width: 100%;
     }
   }
 
   /* small */
 
-  @media all and (min-width:320px) and (max-width:620px){
-    .cart{
+  @media all and (min-width:280px) and (max-width:620px){
+    .Checkout{
         background-color: #f4f4f4;
-        width: "100%";
+        width: 100%;
     }
   }

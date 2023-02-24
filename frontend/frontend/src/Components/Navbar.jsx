@@ -14,10 +14,12 @@ import { useRef } from "react";
 
 export const Navbar = () => {
 
+
     const r = useRef();
     function show(n) {
 
         if (n === 0) {
+
 
             document.getElementById("birthday").style.display = "flex";
             document.getElementById("birthday").style.borderBottom = "5px solid purple";
