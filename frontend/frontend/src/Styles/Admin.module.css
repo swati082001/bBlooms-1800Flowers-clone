@@ -17,6 +17,7 @@
     position: fixed;
     overflow-y: auto;
     margin-top: 50px;
+    color:#65388b
     
 }
 .mobileSidebar
@@ -27,7 +28,7 @@
   position: fixed;
   overflow-y: auto;
   margin-top: 50px;
- 
+  color:#65388b
 }
 
 
@@ -58,6 +59,7 @@
   position: fixed;
   overflow-y: auto;
   margin-top: 50px;
+  color:#65388b
 }
   }
   
@@ -75,6 +77,7 @@
   position: fixed;
   overflow-y: auto;
   margin-top: 50px;
+  color:#65388b
 }
   }
   
