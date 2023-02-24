@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Box,
   Breadcrumb,
@@ -13,10 +14,15 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import { Heading, Image, SimpleGrid, Stack } from "@chakra-ui/react";
+
+import {  Image, SimpleGrid, Stack } from "@chakra-ui/react";
+
 import { useEffect, useState } from "react";
 
 import { ArrowRightIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import axios from "axios";
+import { Navbar } from "../../Components/Navbar";
+import { Footer } from "../../Components/Footer";
 
 const Birthday = () => {
   let [prod, setprod] = useState([]);
@@ -40,6 +46,7 @@ const Birthday = () => {
 
   return (
     <>
+     <Navbar/>
       <div
         style={{
           gap: "30px",
@@ -120,13 +127,11 @@ const Birthday = () => {
           <div
             style={{
               marginLeft: "10px",
-              //   border: "1px solid red",
               height: "280px",
               width: "270px",
               backgroundColor: "#734f96",
               marginTop: "10px",
               borderRadius: "8px",
-              marginLeft:"10px"
             }}
           >
             <h3 style={{ color: "white", paddingTop: "15px" }}>
@@ -372,8 +377,7 @@ const Birthday = () => {
             columns={{ base: 1, md: 2, lg: 3 }}
           >
             {prod.map((el) => (
-              <Stack 
-            //   border="2px solid"
+              <Stack key={el.id}
                h={450}>
                 <Image src={el.image} h="320px"/> 
                 {/* <Heading h={50}>{el.title}</Heading> */}
@@ -408,6 +412,7 @@ const Birthday = () => {
           </SimpleGrid>
         </Box>
       </div>
+      {/* <Footer/> */}
     </>
   );
 };

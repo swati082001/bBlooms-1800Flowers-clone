@@ -2,13 +2,16 @@ import React from 'react'
 import {Box, Button, Card, CardFooter, Flex, Image, InputGroup, Select, Text, Input,InputRightAddon,Divider, UnorderedList, ListItem} from "@chakra-ui/react"
 import Styles from "./cart.module.css"
 import { DeleteIcon,CheckIcon} from '@chakra-ui/icons'
+import CartFooter from './CartFooter'
+import { Navbar } from '../../Components/Navbar'
 
 const Cart = () => {
   return (
     <div className={Styles.cart}>
-        <Box width="70%" margin={"auto"}  h={"auto"}>
-            <Flex justifyContent={"space-between"}>
-            <Box width="60%" margin={"auto"}  h={"900px"} p={4}>
+      {/* <Navbar/> */}
+        <Box width={{base:"100%",sm:"100%",md:"100%",lg:"75%"}} margin={{base:"auto",sm:"auto",md:"auto",lg:"auto"}}  h={"auto"}>
+            <Flex direction={{base:"column",sm:"column",md:"row",lg:"row"}} justifyContent={{base:"space-around",sm:"space-around",md:"space-around",lg:"space-between"}}>
+            <Box width={{base:"100%",sm:"100%",md:"70%",lg:"60%"}} margin={"auto"}  h={{base:"auto",sm:"auto",md:"900px",lg:"900px"}} p={{base:4,sm:4,md:4,lg:4}}>
              
                 <Text textStyle="Carthead">Shopping Cart</Text>
                 <Card bg={"white"} mt="20px" p={4} border="2px solid #65388b">
@@ -61,7 +64,7 @@ const Cart = () => {
             </Box>
 
             {/* 2ndpart */}
-            <Box width="40%" margin={"auto"}  h={"auto"} p={4}>
+            <Box width={{base:"100%",sm:"100%",md:"35%",lg:"43%"}} margin={"auto"}  h={{base:"auto",sm:"auto",md:"900px",lg:"900px"}} p={{base:4,sm:4,md:4,lg:4}}>
               <Card>
               <Button bg="#00c876" color={"white"} _hover={{bg:"#00c876" ,color:"white",boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>PROCEED TO CHECKOUT</Button>
               </Card>
@@ -163,10 +166,8 @@ const Cart = () => {
             </Flex>
             
             {/* footer */}
-            <Box>
-
-            </Box>
         </Box>
+            <CartFooter/>
     </div>
   )
 }
