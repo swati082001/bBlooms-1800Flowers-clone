@@ -1,9 +1,13 @@
 import "./App.css";
-import Admin from "./pages/AdminPage/Admin";
+import Allroutes from "./routes/Allroutes";
+
+
 function App() {
   return (
     <div className="App">
-      <Admin />
+
+       <Allroutes />
+
     </div>
   );
 }
