@@ -9,6 +9,7 @@ const { allsympathyRouter } = require("./Route/Products/Sympathy/allsympathy.rou
 const { plantbirthRouter } = require("./Route/Products/Birthday/plantbirth.route");
 const { bestflowerRouter } = require("./Route/Products/Flowers/bestflower.route");
 require("dotenv").config();
+const cors = require("cors");
 
 
 const app = express();
