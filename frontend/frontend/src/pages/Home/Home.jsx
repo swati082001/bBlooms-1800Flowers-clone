@@ -4,12 +4,16 @@ import { Navbar } from "../../Components/Navbar";
 
 export const Home = () => {
 
-    return <Box>
+
+    return <Box h="auto" >
+
+    
         <Navbar/>
+
         <Box p="10px" border="1px solid red">
             <Link>PRESIDENTS DAY SALE: SAVE UP TO 40% | SHOP NOW </Link>
         </Box>
-        <Box>
+        <Box mt="60px" >
             <Image zIndex="0" position="absolute" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt7f295fb7ba086b4b/63ebb5b941faab583d488ac4/send-birthday-flowers-hero-fy23.jpg?quality=75&auto=webp&optimize={medium}" alt="banner" />
 
             <Box position="relative" left="900px" top="50px" zIndex="1" w="450px" >
@@ -20,7 +24,7 @@ export const Home = () => {
             </Box>
 
 
-            <Box zIndex="1" position="relative" top="80px" left="270px" h="100px" alignItems="center" border="1px solid black" w="1000px" display="flex" justifyContent="space-around" bg="blue.200" >
+            <Box zIndex="1" position="relative" top="80px" left="270px" h="100px" alignItems="center" boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;" w="1000px" display="flex" justifyContent="space-around" bg="blue.200" >
 
                 <Text fontSize="2xl" >FIND THE PERFECT GIFT</Text>
                 <Input bg="white" w="240px" type="text" placeholder="ZIP CODE (wher is it going?)" />
@@ -48,43 +52,43 @@ export const Home = () => {
 
             <Heading>Send Flowers & Exclusive Gifts</Heading>
 
-            <Box display="flex" justifyContent="space-around" w="90%" margin="auto" >
+            <Box display="flex" justifyContent="space-around" w="90%" margin="auto" mt="30px" >
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
 
-                    <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt3595a4f11ad56e50/63d92b2699f0c910e171a33c/flower-delivery-same-day-silo-191167xl-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="sameDayFlowers" />
+                    <Image  w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt3595a4f11ad56e50/63d92b2699f0c910e171a33c/flower-delivery-same-day-silo-191167xl-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="sameDayFlowers" />
 
                     <Text>Same-Day Flower Delivery</Text>
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blta2748b9a4b476529/63d304315ba46f75ddba03cf/sympathy-flowers-silo-191166XL-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="Sympathy" />
 
                     <Text>Sympathy</Text>
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt867d5477b7adc192/627be2023debbf3afdd2ea1e/get-well-flowers-146761-silo-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="GetWell" />
 
                     <Text>Get Well</Text>
 
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt76e3b18a47e939d8/627be2672bec9b34ea68c61c/blooming-love-161132-silo-v3_260x284.jpeg?quality=75&auto=webp&optimize={medium}" alt="love&romance" />
 
                     <Text>Love & Romance</Text>
 
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt7bc6d66cf28f5b49/625f1ce82777714c51b31360/chocolate-covered-strawberries-delivery-silo-192552m_260x284_(2).jpeg?quality=75&auto=webp&optimize={medium}" alt="chocolateCoveredStrawberries" />
 
                     <Text>Chocolate Covered Strawberries</Text>
 
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt1cadd11290759d19/63d3046a5d9574542d40a84e/just-because-flowers-silo-191168xl-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="justBecause" />
 
                     <Text>Just Because</Text>
@@ -94,13 +98,13 @@ export const Home = () => {
         </Box>
 
 
-        <Box display="flex" justifyContent="space-between" border="1px solid black" w="80%" m="auto" h="auto" mt="100px" >
+        <Box display="flex" justifyContent="space-between"  w="80%" m="auto" h="auto" mt="100px" >
 
 
             <Box w="45%" h="auto ">
                 <Link>
 
-                    <Image src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8eb26a7c8e341856/63ed0d369b18a175e2431aee/best-selling-flowers-tier-fy23-v2.jpg?quality=60&auto=webp&optimize={medium}" alt="BestSellers" />
+                    <Image boxShadow="rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8eb26a7c8e341856/63ed0d369b18a175e2431aee/best-selling-flowers-tier-fy23-v2.jpg?quality=60&auto=webp&optimize={medium}" alt="BestSellers" />
                     <Text zIndex="1" bg="black" opacity="0.9" h="50px" pt="10px" color="white" fontSize="xl" position="relative" bottom="50px" border="1px solid black" >Best Sellers</Text>
                 </Link>
             </Box>
@@ -109,7 +113,7 @@ export const Home = () => {
 
                 <Link>
 
-                    <Image src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8f5b6ec0917f2c05/63ebb95e346bf05048c801ad/house-plants-tier-fy23.jpg?quality=60&auto=webp&optimize={medium}" alt="hosue Plants" />
+                    <Image boxShadow="rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;"  src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8f5b6ec0917f2c05/63ebb95e346bf05048c801ad/house-plants-tier-fy23.jpg?quality=60&auto=webp&optimize={medium}" alt="hosue Plants" />
                     <Text zIndex="1" bg="black" opacity="0.9" h="50px" pt="10px" color="white" fontSize="xl" position="relative" bottom="50px" border="1px solid black" >House Plants</Text>
                 </Link>
             </Box>
@@ -117,22 +121,22 @@ export const Home = () => {
 
         </Box>
 
-        <Box m="auto" mt="100px" border="1px solid black" w="80%" >
-            <Image src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt89e2d695453f2b2f/63ebba1dbc8ae610d2fd9f1a/experience-diy-gifts-zone-10-banner-fy23.jpg?quality=70&auto=webp&optimize={medium}" alt="DIY" />
+        <Box m="auto" mt="100px" display="flex" justifyContent="center" w="80%" >
+            <Image boxShadow="rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt89e2d695453f2b2f/63ebba1dbc8ae610d2fd9f1a/experience-diy-gifts-zone-10-banner-fy23.jpg?quality=70&auto=webp&optimize={medium}" alt="DIY" />
         </Box>
 
         <Box mt="100px" >
             <Heading>Trending Flowers & Gifts</Heading>
-            <Box display="flex" justifyContent="space-around" w="90%" margin="auto" >
+            <Box display="flex" justifyContent="space-around" w="90%" margin="auto" mt="30px" >
 
-                <Box border="1px solid black" >
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}}   >
 
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt3595a4f11ad56e50/63d92b2699f0c910e171a33c/flower-delivery-same-day-silo-191167xl-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="sameDayFlowers" />
 
                     <Text noOfLines={2} w="210px" align="center" >Floral Embrace™Starting From $49.9</Text>
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blta2748b9a4b476529/63d304315ba46f75ddba03cf/sympathy-flowers-silo-191166XL-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="Sympathy" />
 
                     <Text noOfLines={2} w="210px" align="center" >Assorted Tulip Bouquet
@@ -140,7 +144,7 @@ export const Home = () => {
                         Starting From $39.99</Text>
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt867d5477b7adc192/627be2023debbf3afdd2ea1e/get-well-flowers-146761-silo-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="GetWell" />
 
                     <Text noOfLines={2} w="210px" align="center" >Fields of Europe® Romance
@@ -149,7 +153,7 @@ export const Home = () => {
 
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt76e3b18a47e939d8/627be2672bec9b34ea68c61c/blooming-love-161132-silo-v3_260x284.jpeg?quality=75&auto=webp&optimize={medium}" alt="love&romance" />
 
                     <Text noOfLines={2} w="210px" align="center" >Two Dozen Red Roses
@@ -158,7 +162,7 @@ export const Home = () => {
 
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt7bc6d66cf28f5b49/625f1ce82777714c51b31360/chocolate-covered-strawberries-delivery-silo-192552m_260x284_(2).jpeg?quality=75&auto=webp&optimize={medium}" alt="chocolateCoveredStrawberries" />
 
                     <Text noOfLines={2} w="210px" align="center" >Two Dozen Assorted Roses
@@ -167,7 +171,7 @@ export const Home = () => {
 
                 </Box>
 
-                <Box>
+                <Box _hover={{ transform:"scale(1.1)", transition:"all 330ms",cursor:"pointer "}} >
                     <Image w="220px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt1cadd11290759d19/63d3046a5d9574542d40a84e/just-because-flowers-silo-191168xl-260x284.jpg?quality=75&auto=webp&optimize={medium}" alt="justBecause" />
 
                     <Text noOfLines={2} w="210px" align="center" >One of a Kind Bouquet | Local Florist Designed
@@ -181,20 +185,20 @@ export const Home = () => {
         <Box mt="100px" >
             <Image w="30px" ml="350px" mb="-38px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt4661dd99d6401481/60184a440f1c0c1aa6f87986/instagram-icon.svg?quality=75&auto=webp&optimize={medium}" alt="instagram" />
             <Heading> Share Your #MadeMeSmile Flowers Moment</Heading>
-            <Box border="1px solid black" m="auto" mt="20px" w="80%" display="flex" >
+            <Box m="auto" mt="20px" w="85%" display="flex" gap="20px" justifyContent="center" >
 
-                <Image w="25%" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blte2a16fdd5ffe3f9b/63a6027fd70a0827292d3e8f/ugc-image-charming-garden-bouquet.jpg?quality=75&auto=webp&optimize={medium}" alt="" />
-                <Image w="25%" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/bltea45456133e4ec47/63a602e7eee5ef585b469cab/ugc-image-peperomia-baby-rubber-plant.jpg?quality=75&auto=webp&optimize={medium}" alt="" />
-                <Image w="25%" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt0e6ea64769f54f55/63a603239d04dd206dffc01d/ugc-image-lovely-lavender-medley-winter.jpg?quality=75&auto=webp&optimize={medium}" alt="" />
-                <Image w="25%" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt19f3d333358d845a/63a6035320e5a54e6ea886ac/ugc-image-magnificent-roses-preserved-blue-velvet-roses.jpg?quality=75&auto=webp&optimize={medium}" alt="" />
+                <Image w="24%" boxShadow="rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;" borderRadius="10px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blte2a16fdd5ffe3f9b/63a6027fd70a0827292d3e8f/ugc-image-charming-garden-bouquet.jpg?quality=75&auto=webp&optimize={medium}" alt="" />
+                <Image w="24%" boxShadow="rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;" borderRadius="10px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/bltea45456133e4ec47/63a602e7eee5ef585b469cab/ugc-image-peperomia-baby-rubber-plant.jpg?quality=75&auto=webp&optimize={medium}" alt="" />
+                <Image w="24%" boxShadow="rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;" borderRadius="10px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt0e6ea64769f54f55/63a603239d04dd206dffc01d/ugc-image-lovely-lavender-medley-winter.jpg?quality=75&auto=webp&optimize={medium}" alt="" />
+                <Image w="24%" boxShadow="rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;" borderRadius="10px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt19f3d333358d845a/63a6035320e5a54e6ea886ac/ugc-image-magnificent-roses-preserved-blue-velvet-roses.jpg?quality=75&auto=webp&optimize={medium}" alt="" />
 
             </Box>
         </Box>
 
-        <Box m="auto" border="1px solid black" mt="100px" w="80%" >
+        <Box m="auto" mt="100px" w="80%" bg="purple.200" borderRadius="10px" p="20px" boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;" >
             <Heading>Some of the Great Things Our Customers Say About Us</Heading>
 
-            <Box display="flex" mt="30px" >
+            <Box display="flex" mt="50px" >
                 <Box w="25%" p="5px" borderRight="1px solid black" >
                     <Image display="block" margin="auto" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt4c9be4e2d955776a/602a81580aba282006983f75/hp-reviews-final-167891.png?quality=70&auto=webp&optimize={medium}" alt="" />
                     <Text mt="10px" >Beautiful</Text>
@@ -224,14 +228,14 @@ export const Home = () => {
         </Box>
 
         <Box  w="80%" m="auto" mt="100px" >
-            <Box border="1px solid black" p="10px"  >
+            <Box p="10px" bg="purple.100"  >
                 <Text ml="10px" align="left" fontSize="xl" >Send Flowers Online with Flower Delivery by 1-800-Flowers.com, the World's Favorite Florist!</Text>
             </Box>
             <Box align="left" mt="10px" >
                 <Text>There's no better place to order flowers online than 1-800-Flowers.com. Whether you're looking to buy flowers and gifts like roses, orchids, gift baskets, bonsai trees, flowering plants or wedding bouquets, we have the highest quality blooms and the most talented florists who can create exactly what you order. Dazzle and delight your loved ones wherever they may be with truly original flowers and gifts from 1-800-Flowers.com.</Text>
             </Box>
 
-            <Box border="1px solid black" p="10px" mt="20px" >
+            <Box p="10px" mt="20px" bg="purple.100" >
                 <Text ml="10px" align="left" fontSize="xl" >Quick Flower Delivery and Great Customer Service</Text>
             </Box>
             <Box align="left" mt="10px" >
@@ -240,7 +244,7 @@ export const Home = () => {
 For sympathy gifts and funeral flowers, our team of experienced Sympathy Advisors are ready to assist you at 1-866-538-2259.</Text>
             </Box>
 
-            <Box border="1px solid black" p="10px" mt="20px" >
+            <Box p="10px" mt="20px" bg="purple.100" >
                 <Text ml="10px" align="left" fontSize="xl" >Order the Best Flowers Online for All Occasions and Holidays</Text>
             </Box>
             <Box align="left" mt="10px" >
@@ -249,14 +253,14 @@ For sympathy gifts and funeral flowers, our team of experienced Sympathy Advisor
 Deliver smiles all year long with Free Shipping/No Service Charge on all your flowers & gifts when you join the Celebrations Passport® program.</Text>
             </Box>
 
-            <Box border="1px solid black" p="10px" mt="20px" >
+            <Box  p="10px" mt="20px" bg="purple.100" >
                 <Text ml="10px" align="left" fontSize="xl" >Send Flowers Internationally</Text>
             </Box>
             <Box align="left" mt="10px" >
                 <Text>We deliver flowers across the United States and around the world. If you want to send flowers internationally, trust us to deliver your most heartfelt messages. Because of our partnerships with local florists and flower growers, we are able to ensure that bouquets are delivered fresh from the field and on time. Our flower arrangements are artfully created and delivered perfectly arranged by professional florists.</Text>
             </Box>
 
-            <Box border="1px solid black" p="10px" mt="20px">
+            <Box  p="10px" mt="20px" bg="purple.100" >
                 <Text ml="10px" align="left" fontSize="xl">Fresh Flowers Guaranteed by Trusted Florists</Text>
             </Box>
             <Box align="left" mt="10px">
