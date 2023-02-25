@@ -1,15 +1,58 @@
-import { Box, Heading, Text, Image, Input, Link } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Input, Button, Link } from "@chakra-ui/react";
 import {
     FormControl,
     FormLabel,
-    
+    FormErrorMessage,
     FormHelperText,
 } from '@chakra-ui/react'
-// import { FcApproval } from "react-icons/fc";
+import { useState } from "react";
+import { FcApproval } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 // import { GiSchoolBag, GiSuitcase } from "react-icons/gi";
 
-export const Register = () => {
 
+let initialState = {
+    name:"",
+    email:"",
+    password:"",
+    city:"",
+}
+
+export const Register = () => {
+    
+    // const [input,setInput] = ("");
+    const [form,setForm] = useState(initialState);
+    const navigate = useNavigate();
+
+    function getInput(e){
+         const {name,value} = e.target;
+         setForm({...form,[name]:value});
+    }
+    // https://itchy-ruby-tweed-jacket.cyclic.app/users/register
+    // http://localhost:4500/users/register
+    async function addUser(){
+
+        console.log(form,"user details");
+
+        try{
+           let res = await fetch(`https://weary-red-oyster.cyclic.app/users/register`,{
+            method:"POST",
+            body: JSON.stringify(form),
+            headers:{"Content-Type":"Application/json"}
+           });
+           let data = await res.json();
+           localStorage.setItem("currentUser",JSON.stringify(data));
+           if(data){
+             alert("register successful")
+             navigate("/")
+           }
+           console.log(data,"data/response")
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    console.log(form)
     return <Box h="100vh" zIndex="0" display="flex" alignItems="center" justifyContent="space-around" border=" 1px solid black" background="linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/bg41.jpg')" bgSize="cover" >
 
         <Box  w="30%" h='90%' zIndex="1" bg="white" opacity="0.8" borderRadius="10px"  border=" 1px solid black" align="center"   >
@@ -32,14 +75,14 @@ export const Register = () => {
 
                 <FormControl w="65%" m="auto" mt="20px" mb="50px" >
                     <FormLabel color="white"fontWeight="bold" >Full Name</FormLabel>
-                    <Input bg="white" type='text' placeholder="What is your Name ?" name="name" />
+                    <Input bg="white" type='text' placeholder="What is your Name ?" name="name" value={form.name} onChange={(e)=>getInput(e)}  />
 
                     <FormLabel mt="20px" color="white" fontWeight="bold" >Email Id</FormLabel>
-                    <Input bg="white" type='email' placeholder="Tell us your Email Id" id={"field-:r4"} name="email" />
+                    <Input bg="white" type='email' placeholder="Tell us your Email Id" id={"field-:r4"} name="email" value={form.email} onChange={(e)=>getInput(e)}  />
 
 
                     <FormLabel color="white" mt="20px" fontWeight="bold" >Password</FormLabel>
-                    <Input bg="white" type='password' placeholder="Create a password for your account" id={"field-:r5"} name="password" />
+                    <Input bg="white" type='password' placeholder="Create a password for your account" id={"field-:r5"} name="password" value={form.password} onChange={(e)=>getInput(e)}  />
                     <FormHelperText color="white" > <Text fontWeight="bold" align="left">Minimum 6 characters required</Text> </FormHelperText>
 
                     <Box align="left" mt="20px" display="flex">
@@ -47,7 +90,8 @@ export const Register = () => {
                         <input type="checkbox" name="whatsappUpdates"  /> <Text color="white" fontSize="s" >Email me about special offers, new products and promotions</Text>
                     </Box>
 
-                    <Input mt="20px" type="submit" w="300px" bg="purple.500" value="Register" />
+                    <Input mt="20px" type="submit" w="300px" bg="purple.500" value="Register" onClick={addUser}  />
+
                     <Text bg="white" fontSize="xs" mt="20px" align="left" mb="20px" fontWeight="bold" > By clicking Register, you agree to the <Link color="blue.400">Terms and Conditions</Link> & <Link color="blue.400">Privacy Policy</Link> of 1800flowers.com </Text>
 
                     {/* <Button w="250px" bg="purple.500" align="left">Register</Button> */}
