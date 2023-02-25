@@ -25,8 +25,8 @@ const UsersPage = () => {
 
   let handleDelete = (id) => {
     dispatch(removeUser(id));
-    dispatch(getUser());
     console.log(id);
+    dispatch(getUser());
   };
 
   console.log(users);
@@ -73,7 +73,7 @@ const UsersPage = () => {
               </CardBody>
               <CardFooter>
                 <Button
-                  onClick={() => handleDelete(el.id)}
+                  onClick={() => handleDelete(el._id)}
                   bgColor="#19a598"
                   color="white"
                   _hover={{ backgroundColor: "red.500" }}

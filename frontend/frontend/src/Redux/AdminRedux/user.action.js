@@ -24,7 +24,7 @@ export let getUser = () => async (dispatch) => {
 export let removeUser = (id) => async (dispatch) => {
   dispatch({ type: USER_LOADING });
   try {
-    await axios.delete(
+    let response = await axios.delete(
       `https://weary-red-oyster.cyclic.app/users/delete/${id}`
     );
     dispatch({ type: REMOVE_USER, payload: id });
