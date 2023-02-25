@@ -16,6 +16,19 @@ bestflowerRouter.get("/", async(req, res)=>{
     }
 })
 
+
+bestflowerRouter.get("/get/:id", async(req, res)=>{
+    try {
+        const ID = req.params.id;
+        const data = await BestflowerModel.find({_id:ID});
+        res.send(data)
+    } 
+    catch(err){
+        res.send(err.message);
+    }
+})
+
+
 bestflowerRouter.post("/add", async(req, res)=>{
     const payload = req.body;
     try {
@@ -31,8 +44,8 @@ bestflowerRouter.patch("/update/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
         const payload = req.body;
-        await BestflowerModel.findByIdAndUpdate({_id:ID}, payload);
-        res.send("User has been updated");
+        const data = await BestflowerModel.findByIdAndUpdate({_id:ID}, payload);
+        res.send(data);
     }
     catch(err){
         res.send(err.message);

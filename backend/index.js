@@ -10,6 +10,7 @@ const { plantbirthRouter } = require("./Route/Products/Birthday/plantbirth.route
 const { bestflowerRouter } = require("./Route/Products/Flowers/bestflower.route");
 require("dotenv").config();
 const cors = require("cors");
+const { adminuserRouter } = require("./Route/adminuser.route");
 
 
 const app = express();
@@ -20,14 +21,27 @@ app.get("/", (req, res)=>{
     res.send("Welcome to Home page");
 })
 
-
+app.use("/adminusers", adminuserRouter);
 app.use("/users", userRouter);
-// app.use(authentication);
+
+app.use(authentication);
+
+//best Selling Birthday Gift
 app.use("/products/birthday", bestsellingRouter);
+
+//birthday flower
 app.use("/products/birthflower", birthflowerRouter);
+
+//All flower
 app.use("/products/allflower", allflowerRouter);
+
+//All Sympathy
 app.use("/products/allsympathy", allsympathyRouter);
+
+//Birthday plants
 app.use("/products/plantbirth", plantbirthRouter);
+
+//best selling flowers
 app.use("/products/bestflower", bestflowerRouter);
 
 

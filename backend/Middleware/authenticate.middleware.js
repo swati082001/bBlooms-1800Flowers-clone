@@ -5,7 +5,7 @@ const authentication = (req, res, next) =>{
     const token = req.headers.authorization;
     jwt.verify(token, 'bblooms', (err, decoded)=>{
         if(decoded){
-            req.body.user=decoded.userId;
+            req.body.user=decoded.userID;
             next();
         }
         else{
