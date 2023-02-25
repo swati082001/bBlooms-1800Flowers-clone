@@ -1,15 +1,8 @@
 import { Box, Link, Image, Heading, Text, Button, Select, Input } from "@chakra-ui/react";
-import { Footer } from "../../Components/Footer";
-import { Navbar } from "../../Components/Navbar";
 
 export const Home = () => {
 
-//    hello
     return <Box h="auto" >
-
-    
-        <Navbar/>
-
         <Box p="10px" border="1px solid red">
             <Link>PRESIDENTS DAY SALE: SAVE UP TO 40% | SHOP NOW </Link>
         </Box>
@@ -267,6 +260,6 @@ Deliver smiles all year long with Free Shipping/No Service Charge on all your fl
                 <Text>In 1976, Jim McCann, founder of 1-800-Flowers.com, opened his first retail florist shop and forever changed the way people buy flowers for birthdays, anniversaries, and other special occasions. For more than 40 years, our passion has been to help you connect and express yourself to the important people in your life by providing the finest selection of beautiful flowers and arrangements available for same day or next day delivery, from roses and orchids to tulips, carnations, and daisies. With quality supported by our 100% Satisfaction Guarantee, you can also find plants, gift baskets, gourmet foods, and stuffed animals that are perfect for every occasion. Ranked consecutively on the Top 1000 list of North America’s Leading Online Retailers by Digital Commerce 360, 1-800-FLOWERS.COM, Inc. is proud to offer solutions for every gifting need, whether you're looking for flower delivery across town or across the country.</Text>
             </Box>
         </Box>
-        <Footer/>
+
     </Box>
 }
