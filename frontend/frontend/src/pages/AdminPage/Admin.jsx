@@ -13,23 +13,28 @@ import AdminList from "./AdminList";
 import Dashboard from "./Dashboard";
 import ProductCharts from "./ProductCharts";
 import LocationPage from "./LocationPage";
+import UsersPage from "./UsersPage";
 
 const Admin = () => {
   let [dashboard, setDashboard] = useState(true);
   let [adminList, setAdminList] = useState(false);
   let [products, setProducts] = useState(false);
   let [location, setLocation] = useState(false);
+  let [users, setUsers] = useState(false);
 
   let handleDashboard = () => {
     setDashboard(true);
     setAdminList(false);
     setProducts(false);
+    setLocation(false);
+    setUsers(false);
   };
   let handleAdminList = () => {
     setDashboard(false);
     setAdminList(true);
     setProducts(false);
     setLocation(false);
+    setUsers(false);
   };
 
   let handleProducts = () => {
@@ -37,6 +42,7 @@ const Admin = () => {
     setAdminList(false);
     setProducts(true);
     setLocation(false);
+    setUsers(false);
   };
 
   let handleLocation = () => {
@@ -44,6 +50,15 @@ const Admin = () => {
     setAdminList(false);
     setProducts(false);
     setLocation(true);
+    setUsers(false);
+  };
+
+  let handleUserList = () => {
+    setDashboard(false);
+    setAdminList(false);
+    setProducts(false);
+    setLocation(false);
+    setUsers(true);
   };
 
   console.log(adminList);
@@ -114,11 +129,17 @@ const Admin = () => {
       </div>
       <div className={styles.sidebar}>
         <Box mt={4} h="570px" bgColor={"#65388b"}>
-          <VStack spacing={12} align="stretch" bgColor={"#65388b"}>
+          <VStack
+            spacing={12}
+            align="stretch"
+            bgColor={"purple.400"}
+            pt={5}
+            pb={5}
+          >
             <Button
               leftIcon={<AiOutlineDashboard />}
               fontFamily="Cambria"
-              bgColor="#65388b"
+              bgColor="purple.400"
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
@@ -129,7 +150,7 @@ const Admin = () => {
             <Button
               leftIcon={<RiProductHuntLine />}
               fontFamily="Cambria"
-              bgColor="#65388b"
+              bgColor="purple.400"
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
@@ -140,7 +161,7 @@ const Admin = () => {
             <Button
               leftIcon={<BsShop />}
               fontFamily="Cambria"
-              bgColor="#65388b"
+              bgColor="purple.400"
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
@@ -150,7 +171,7 @@ const Admin = () => {
             <Button
               leftIcon={<MdOutlineCategory />}
               fontFamily="Cambria"
-              bgColor="#65388b"
+              bgColor="purple.400"
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
@@ -160,7 +181,7 @@ const Admin = () => {
             <Button
               leftIcon={<GoLocation />}
               fontFamily="Cambria"
-              bgColor="#65388b"
+              bgColor="purple.400"
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
@@ -171,17 +192,18 @@ const Admin = () => {
             <Button
               leftIcon={<FiUsers />}
               fontFamily="Cambria"
-              bgColor="#65388b"
+              bgColor="purple.400"
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleUserList}
             >
               Users List
             </Button>
             <Button
               leftIcon={<RiAdminLine />}
               fontFamily="Cambria"
-              bgColor="#65388b"
+              bgColor="purple.400"
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
@@ -196,6 +218,7 @@ const Admin = () => {
       {adminList && <AdminList />}
       {products && <ProductCharts />}
       {location && <LocationPage />}
+      {users && <UsersPage />}
     </div>
   );
 };

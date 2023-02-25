@@ -29,7 +29,7 @@ const Dashboard = () => {
               color={"white"}
               leftIcon={<MdOutlinePending />}
               textStyle={"DashboardBoxes"}
-              bgColor={"#9181d9"}
+              bgColor={"yellow.400"}
               p={{ base: 4, md: 6, lg: 8 }}
               size={{ base: "xs", md: "md", lg: "md" }}
             >
