@@ -11,11 +11,11 @@ userRouter.post("/register", async(req, res)=>{
     try {
       const data = await UserModel.find({email});
       if(data.length>0){
-           res.send("User already Registered");
+           res.send({"msg":"User already Registered"});
       }  
       else{
         bcrypt.hash(password, 7, async(err, hash)=>{
-            if(err) res.send("Wrong Credentials");
+            if(err) res.send({"msg":"Wrong Credentials"});
             else{
                 const user = new UserModel({name, email, password:hash, city});
                 await user.save();
@@ -25,18 +25,18 @@ userRouter.post("/register", async(req, res)=>{
       }
     } 
     catch(err){
-        res.send(err);
+        res.status(400).send({"msg":err.message});
     }
 })
 
 
 userRouter.get("/", async(req, res)=>{
     try {
-       const data = await UserModel.find() 
+       const data = await UserModel.find();
        res.send(data);
     }
     catch(err){
-       res.send(err.message); 
+       res.status(400).send({"msg":err.message}); 
     }
 })
 
@@ -51,17 +51,17 @@ userRouter.post("/login", async(req, res)=>{
                     res.send({"msg":"Logon Successful", "token":token, "currentUser":data[0]});
                 }
                 else{
-                    res.send("Something went Wrong");
+                    res.send({"msg":"Something went Wrong"});
                 }
             });
            
         }
         else{
-            res.send("Wrong Credentials");
+            res.send({"msg":"Wrong Credentials"});
         }
     } 
     catch(err){
-        res.send(err);
+        res.status(400).send({"msg":err.message});
     }
 })
 
@@ -82,10 +82,10 @@ userRouter.delete("/delete/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
         await UserModel.findByIdAndDelete({_id:ID});
-        res.send("User has been deleted");
+        res.send({"msg":"User has been deleted"});
     }
     catch(err){
-        res.send(err.message);
+        res.status(400).send({"msg":err.message});
     }
 })
 
