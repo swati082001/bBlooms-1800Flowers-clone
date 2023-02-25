@@ -13,18 +13,17 @@ import {
   Text,
   WrapItem,
 } from "@chakra-ui/react";
-import { Heading, Image, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Image, SimpleGrid, Stack } from "@chakra-ui/react";
 
 import { useEffect, useState } from "react";
 
 import {
-  ArrowRightIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import axios from "axios";
 import { Navbar } from "../../Components/Navbar";
-import { Footer } from "../../Components/Footer";
+//import { Footer } from "../../Components/Footer";
 
 const Birthday = () => {
   let [prod, setprod] = useState([]);
