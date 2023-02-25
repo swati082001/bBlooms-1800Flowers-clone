@@ -11,6 +11,7 @@ const { bestflowerRouter } = require("./Route/Products/Flowers/bestflower.route"
 require("dotenv").config();
 const cors = require("cors");
 const { adminuserRouter } = require("./Route/adminuser.route");
+const { cartRouter } = require("./Route/cart.route");
 
 
 const app = express();
@@ -43,6 +44,9 @@ app.use("/products/plantbirth", plantbirthRouter);
 
 //best selling flowers
 app.use("/products/bestflower", bestflowerRouter);
+
+//cart
+app.use("/cart", cartRouter);
 
 
 app.listen(process.env.port, async()=>{
