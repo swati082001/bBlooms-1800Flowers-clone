@@ -8,7 +8,19 @@ const allsympathyRouter = express.Router();
 allsympathyRouter.get("/", async(req, res)=>{
     try {
         const data = await AllsympathyModel.find();
-        res.send("Get all products")
+        res.send(data)
+    } 
+    catch(err){
+        res.send(err.message);
+    }
+})
+
+
+allsympathyRouter.get("/get/:id", async(req, res)=>{
+    try {
+        const ID = req.params.id;
+        const data = await AllsympathyModel.find({_id:ID});
+        res.send(data);
     } 
     catch(err){
         res.send(err.message);
@@ -30,8 +42,8 @@ allsympathyRouter.patch("/update/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
         const payload = req.body;
-        await AllsympathyModel.findByIdAndUpdate({_id:ID}, payload);
-        res.send("User has been updated");
+        const data = await AllsympathyModel.findByIdAndUpdate({_id:ID}, payload);
+        res.send(data);
     }
     catch(err){
         res.send(err.message);
@@ -49,7 +61,12 @@ allsympathyRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+    allsympathyRouter.get("/delete", (req, res) =>{
+            AllsympathyModel.remove({size:"large"}, (err, data)=>{
+            if(err) res.status(500).send(err);
+            else res.status(200).send(data);
+        });
+})
 
 
 

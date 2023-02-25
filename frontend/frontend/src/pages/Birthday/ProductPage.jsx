@@ -15,11 +15,13 @@ import {
 } from "@chakra-ui/react";
 import { Heading, Image, SimpleGrid, Stack } from "@chakra-ui/react";
 
-import {  Image, SimpleGrid, Stack } from "@chakra-ui/react";
-
 import { useEffect, useState } from "react";
 
-import { ArrowRightIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import {
+  ArrowRightIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
 import axios from "axios";
 import { Navbar } from "../../Components/Navbar";
 import { Footer } from "../../Components/Footer";
@@ -30,8 +32,8 @@ const Birthday = () => {
   let getdata = () => {
     axios
       .get("https://itchy-ruby-tweed-jacket.cyclic.app/products/allflower")
-      .then((res) =>{
-        setprod(res.data)
+      .then((res) => {
+        setprod(res.data);
         console.log(res.data);
       })
 
@@ -46,7 +48,7 @@ const Birthday = () => {
 
   return (
     <>
-     <Navbar/>
+      <Navbar />
       <div
         style={{
           gap: "30px",
@@ -99,23 +101,25 @@ const Birthday = () => {
         <ArrowRightIcon boxSize={2} /> Birthday flowers
       </p> */}
 
+      <Breadcrumb
+        color="#65388B"
+        spacing="3px"
+        fontSize={14}
+        ml={4}
+        separator={<ChevronRightIcon />}
+      >
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
 
-<Breadcrumb color='#65388B' spacing='3px'fontSize={14} ml={4} separator={<ChevronRightIcon />}>
-  <BreadcrumbItem>
-    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-  </BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#">Birthday</BreadcrumbLink>
+        </BreadcrumbItem>
 
-  <BreadcrumbItem>
-    <BreadcrumbLink href='#'>Birthday</BreadcrumbLink>
-  </BreadcrumbItem>
-
-  <BreadcrumbItem isCurrentPage>
-    <BreadcrumbLink href='#'>Birthday Flowers</BreadcrumbLink>
-  </BreadcrumbItem>
-</Breadcrumb>
-
-
-
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink href="#">Birthday Flowers</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
 
       <div style={{ display: "flex", gap: "25px" }}>
         <div
@@ -135,7 +139,7 @@ const Birthday = () => {
             }}
           >
             <h3 style={{ color: "white", paddingTop: "15px" }}>
-             <Text as="b"> FIND AVAILABLE PRODUCTS!</Text>
+              <Text as="b"> FIND AVAILABLE PRODUCTS!</Text>
             </h3>
             <p
               style={{
@@ -345,12 +349,10 @@ const Birthday = () => {
               height: "640px",
               width: "270px",
               marginTop: "20px",
-              
-              
             }}
           >
             <img
-              style={{ width: "100%" ,}}
+              style={{ width: "100%" }}
               src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/bltbd8e878899d3f1bd/5d52d450696dde105b7d59dd/smile_guarantee.jpg"
               alt="pic"
             />
@@ -377,12 +379,12 @@ const Birthday = () => {
             columns={{ base: 1, md: 2, lg: 3 }}
           >
             {prod.map((el) => (
-              <Stack key={el.id}
-               h={450}>
-                <Image src={el.image} h="320px"/> 
+              <Stack key={el.id} h={450}>
+                <Image src={el.image} h="320px" />
                 {/* <Heading h={50}>{el.title}</Heading> */}
-                <Image cursor="pointer" href="/singleproductpage"
-                
+                <Image
+                  cursor="pointer"
+                  href="/singleproductpage"
                   alt="photo1"
                 />
                 {/* <Image  h="16px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8d4549d3cac15860/61e09d4f2e109d6c649d4aa4/PP_EligibleIcon.svg?quality=75&auto=webp&optimize={medium}" alt="pass"/> */}

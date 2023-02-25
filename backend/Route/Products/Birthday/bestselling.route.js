@@ -6,7 +6,19 @@ const bestsellingRouter = express.Router();
 bestsellingRouter.get("/", async(req, res)=>{
     try {
         const data = await BestsellingModel.find();
-        res.send("Get all products")
+        res.send(data)
+    } 
+    catch(err){
+        res.send(err.message);
+    }
+})
+
+
+bestsellingRouter.get("/get/:id", async(req, res)=>{
+    const ID = req.params.id;
+    try {
+        const data = await BestsellingModel.findById({_id:ID})
+        res.send(data)
     } 
     catch(err){
         res.send(err.message);
@@ -28,8 +40,8 @@ bestsellingRouter.patch("/update/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
         const payload = req.body;
-        await BestsellingModel.findByIdAndUpdate({_id:ID}, payload);
-        res.send("User has been updated");
+        const data = await BestsellingModel.findByIdAndUpdate({_id:ID}, payload);
+        res.send(data);
     }
     catch(err){
         res.send(err.message);
@@ -46,6 +58,13 @@ bestsellingRouter.delete("/delete/:id", async (req, res) =>{
             res.send(err.message);
         }
     })
+
+    // bestsellingRouter.get("/delete", (req, res) =>{
+    //         BestsellingModel.remove({size:"medium"}, (err, data)=>{
+    //             if(err) res.status(500).send(err);
+    //             else res.status(200).send(data);
+    //         });
+    // })
 
 
 

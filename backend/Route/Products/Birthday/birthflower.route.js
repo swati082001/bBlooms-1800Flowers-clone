@@ -7,7 +7,19 @@ const birthflowerRouter = express.Router();
 birthflowerRouter.get("/", async(req, res)=>{
     try {
         const data = await BirthflowerModel.find();
-        res.send("Get all products")
+        res.send(data)
+    } 
+    catch(err){
+        res.send(err.message);
+    }
+})
+
+
+birthflowerRouter.get("/get/:id", async(req, res)=>{
+    try {
+        const ID = req.params.id;
+        const data = await BirthflowerModel.find({_id:ID});
+        res.send(data);
     } 
     catch(err){
         res.send(err.message);
@@ -29,8 +41,8 @@ birthflowerRouter.patch("/update/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
         const payload = req.body;
-        await BirthflowerModel.findByIdAndUpdate({_id:ID}, payload);
-        res.send("User has been updated");
+        const data = await BirthflowerModel.findByIdAndUpdate({_id:ID}, payload);
+        res.send(data);
     }
     catch(err){
         res.send(err.message);
@@ -48,7 +60,12 @@ birthflowerRouter.delete("/delete/:id", async (req, res) =>{
         }
     })
 
-
+//     birthflowerRouter.get("/delete", (req, res) =>{
+//         BirthflowerModel.remove({size:"large"}, (err, data)=>{
+//             if(err) res.status(500).send(err);
+//             else res.status(200).send(data);
+//         });
+// })
 
 
 

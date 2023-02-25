@@ -1,15 +1,16 @@
 const express = require("express");
-const { UserModel } = require("../Model/User.model");
+const { AdminuserModel } = require("../Model/Adminuser.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
 
-const userRouter = express.Router();
+
+const adminuserRouter = express.Router();
 
 
-userRouter.post("/register", async(req, res)=>{
-    const {name, email, password, city} = req.body;
+adminuserRouter.post("/register", async(req, res)=>{
+    const {name, email, password, state} = req.body;
     try {
-      const data = await UserModel.find({email});
+      const data = await AdminuserModel.find({email});
       if(data.length>0){
            res.send("User already Registered");
       }  
@@ -17,7 +18,7 @@ userRouter.post("/register", async(req, res)=>{
         bcrypt.hash(password, 7, async(err, hash)=>{
             if(err) res.send("Wrong Credentials");
             else{
-                const user = new UserModel({name, email, password:hash, city});
+                const user = new AdminuserModel({name, email, password:hash, state});
                 await user.save();
                 res.send(user);
             }
@@ -30,9 +31,9 @@ userRouter.post("/register", async(req, res)=>{
 })
 
 
-userRouter.get("/", async(req, res)=>{
+adminuserRouter.get("/", async(req, res)=>{
     try {
-       const data = await UserModel.find() 
+       const data = await AdminuserModel.find() 
        res.send(data);
     }
     catch(err){
@@ -40,10 +41,10 @@ userRouter.get("/", async(req, res)=>{
     }
 })
 
-userRouter.post("/login", async(req, res)=>{
+adminuserRouter.post("/login", async(req, res)=>{
     const {email,password}=req.body;
     try {
-        const data = await UserModel.find({email});
+        const data = await AdminuserModel.find({email});
         if(data.length>0){
             bcrypt.compare(password, data[0].password, function(err, result) {
                 if(result){
@@ -66,22 +67,22 @@ userRouter.post("/login", async(req, res)=>{
 })
 
 
-// userRouter.patch("/update/:id", async (req, res) =>{
-//     try{
-//         const ID = req.params.id;
-//         const payload = req.body;
-//         await UserModel.findByIdAndUpdate({_id:ID}, payload);
-//         res.send("User has been updated");
-//     }
-//     catch(err){
-//         res.send(err.message);
-//     }
-// })
-
-userRouter.delete("/delete/:id", async (req, res) =>{
+adminuserRouter.patch("/update/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
-        await UserModel.findByIdAndDelete({_id:ID});
+        const payload = req.body;
+        await AdminuserModel.findByIdAndUpdate({_id:ID}, payload);
+        res.send("User has been updated");
+    }
+    catch(err){
+        res.send(err.message);
+    }
+})
+
+adminuserRouter.delete("/delete/:id", async (req, res) =>{
+    try{
+        const ID = req.params.id;
+        await AdminuserModel.findByIdAndDelete({_id:ID});
         res.send("User has been deleted");
     }
     catch(err){
@@ -89,4 +90,4 @@ userRouter.delete("/delete/:id", async (req, res) =>{
     }
 })
 
-module.exports = {userRouter};
+module.exports = {adminuserRouter};
