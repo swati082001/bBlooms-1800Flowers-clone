@@ -1,11 +1,12 @@
 import React from "react";
-
 import {
   Box,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   Button,
+  Img,
+  Input,
   Menu,
   MenuButton,
   MenuItem,
@@ -13,30 +14,77 @@ import {
   Text,
   WrapItem,
 } from "@chakra-ui/react";
-import { Image, SimpleGrid, Stack } from "@chakra-ui/react";
-
+import { Heading, Image, SimpleGrid, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 import {
+  ArrowRightIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import axios from "axios";
-import { Navbar } from "../../Components/Navbar";
-//import { Footer } from "../../Components/Footer";
+import { Link } from "react-router-dom";
 
-const Birthday = () => {
+const Flower = () => {
   let [prod, setprod] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [count, setcount] = useState(0);
+  const [query, setQuery] = useState("");
 
   let getdata = () => {
     axios
-      .get("https://itchy-ruby-tweed-jacket.cyclic.app/products/allflower")
+      .get("https://weary-red-oyster.cyclic.app/products/allflower")
       .then((res) => {
         setprod(res.data);
-        console.log(res.data);
+        console.log(res);
       })
 
       .catch((err) => console.log(err));
+  };
+
+  // const handleSearch = (event) => {
+  //   if (event.target.value === '') {
+  //     setprod(prod);
+  //   } else {
+  //     console.log(prod,"sudipa");
+  //     let filteritem=prod.filter((el) =>
+  //     el.price
+
+  //       .includes(event.target.value)
+  //     // setprod(
+
+  //     //   )
+  //     );
+  //     console.log(filteritem);
+  //     console.log(prod);
+  //   }
+  // };
+
+  let handleHigh = () => {
+    setcount(count + 1);
+    let highdata = prod.sort((a, b) => {
+      return +b.price - +a.price;
+    });
+
+    setprod(highdata);
+  };
+
+  let handleLow = () => {
+    setcount(count + 1);
+    let lowdata = prod.sort((a, b) => {
+      return +a.price - +b.price;
+    });
+
+    setprod(lowdata);
+  };
+
+  const handleInputChange = (event) => {
+    const query = event.target.value.toLowerCase();
+    setQuery(query);
+    const filteredData = prod.filter((item) =>
+      item.type.toLowerCase().includes(query)
+    );
+    setprod(filteredData);
   };
 
   useEffect(() => {
@@ -47,13 +95,12 @@ const Birthday = () => {
 
   return (
     <>
-      <Navbar />
       <div
         style={{
           gap: "30px",
           display: "flex",
           marginTop: "30px",
-          //   border: "1px solid black",
+          //  border: "3px solid red",
         }}
       >
         <div style={{ marginLeft: "10px" }}>
@@ -64,16 +111,23 @@ const Birthday = () => {
             Birthday Flowers
           </Text>
         </div>
-        {/* <p style={{fontSize:"50px"}}>|</p> */}
-        <div style={{ borderLeft: "1px solid #757575" }}>
+
+        <div
+          style={{
+            borderLeft: "1px solid #757575",
+            // width: "1100px"
+          }}
+        >
           <p
             style={{
               textAlign: "left",
               fontSize: "14px",
-              height: "70px",
-              width: "1100px",
+              // height: "70px",
+              // width: "1100px",
               paddingLeft: "30px",
-            }}
+              //  border: "4px solid blue",
+               marginBottom:"25px"           
+               }}
           >
             Our birthday flowers include fresh roses, daisies, and more! Whether
             your birthday flower delivery is sent to home or office, you can be
@@ -83,6 +137,30 @@ const Birthday = () => {
             ordered weeks ago or this morning. You can be sure our flowers for
             birthdays will send the right message.
           </p>
+          <div
+            style={
+              {
+                // border:"7px solid black"
+                display:"flex",
+                justifyContent:"space-around"
+              }
+            }
+          >
+            <Button mr={"10px"} border={"1px solid grey"} onClick={handleHigh}>
+              {" "}
+              High to Low
+            </Button>
+            <Button ml={"10px"} border={"1px solid grey"} onClick={handleLow}>
+              {" "}
+              Low to High
+            </Button>
+            <Input w={"30%"} border={"1px solid grey"}
+              type="text"
+              value={query}
+              onChange={handleInputChange}
+              placeholder="Search......"
+            />
+          </div>
         </div>
       </div>
 
@@ -130,11 +208,13 @@ const Birthday = () => {
           <div
             style={{
               marginLeft: "10px",
+              //   border: "1px solid red",
               height: "280px",
               width: "270px",
               backgroundColor: "#734f96",
               marginTop: "10px",
               borderRadius: "8px",
+              marginLeft: "10px",
             }}
           >
             <h3 style={{ color: "white", paddingTop: "15px" }}>
@@ -211,6 +291,16 @@ const Birthday = () => {
               </Button>
             </WrapItem>
           </div>
+
+          {/* filter */}
+          {/* <div style={{border:"3px solid black",width:"200px",height:"200px"}}>
+        <p>FILTERS:</p>
+            <Input
+              onChange={handleSearch}
+              variant='filled'
+              placeholder='Search within filters'
+            />
+        </div> */}
           <div
             style={{
               textAlign: "left",
@@ -372,32 +462,24 @@ const Birthday = () => {
 
         {/* </div> */}
         <Box>
-          <SimpleGrid
-            // border={"2px solid"}
-            gap={5}
-            columns={{ base: 1, md: 2, lg: 3 }}
-          >
+          <SimpleGrid gap={5} columns={{ base: 1, md: 2, lg: 3 }}>
             {prod.map((el) => (
-              <Stack key={el.id} h={450}>
-                <Image src={el.image} h="320px" />
-                {/* <Heading h={50}>{el.title}</Heading> */}
-                <Image
-                  cursor="pointer"
-                  href="/singleproductpage"
-                  alt="photo1"
-                />
-                {/* <Image  h="16px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8d4549d3cac15860/61e09d4f2e109d6c649d4aa4/PP_EligibleIcon.svg?quality=75&auto=webp&optimize={medium}" alt="pass"/> */}
-                {/* <Text>{el.price}</Text> */}
-                {/* <Text>{el.description}</Text> */}
-                <img
-                  style={{ marginLeft: "-99px", height: "14px" }}
+              <Stack h={450}>
+                <Link to={`/flower/${el._id}`}>
+                  <Image src={el.image} h="360px" />
+                </Link>
+
+                <Img 
+                  style={{marginLeft:"-100px",height: "14px" }}
                   src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8d4549d3cac15860/61e09d4f2e109d6c649d4aa4/PP_EligibleIcon.svg?quality=75&auto=webp&optimize={medium}"
-                  alt=""
+                  alt="passport_pic"
                 />
                 <h2 style={{ textAlign: "left", fontSize: "18px" }}>
-                  Floral Embrace™
+                  {el.type}
                 </h2>
-                {/* <h2 style={{Text:"b"}}>$49.99 - $79.99</h2> */}
+                <h2 style={{ textAlign: "left" }}>
+                  <Text as="b">{el.price}</Text>
+                </h2>
                 <Text
                   as="b"
                   style={{
@@ -405,17 +487,14 @@ const Birthday = () => {
                     fontSize: "18px",
                     marginTop: "-2px",
                   }}
-                >
-                  $49.99 - $79.99
-                </Text>
+                ></Text>
               </Stack>
             ))}
           </SimpleGrid>
         </Box>
       </div>
-      {/* <Footer/> */}
     </>
   );
 };
 
-export default Birthday;
+export default Flower;
