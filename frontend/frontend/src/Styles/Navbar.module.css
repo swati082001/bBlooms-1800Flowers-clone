@@ -1,0 +1,62 @@
+
+
+#categoryMenu{
+    display:none;
+}
+
+/*---------------------media queries---------------------------------------------*/
+
+@media only screen and (max-width: 1300px) {
+    
+    #category{
+        display: none;
+    }
+    #categoryMenu{
+        display:initial;
+    }
+    #search{
+        display:none;
+    }
+    #logo{
+        position: relative;
+        left: 200px;
+    }
+    #subContainer{
+        justify-content: space-between;
+     
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    
+    #category{
+        display: none;
+    }
+    #categoryMenu{
+        display:initial;
+    }
+    #search{
+        display:none;
+    }
+    #logo{
+        position: relative;
+        left: 200px;
+    }
+    #subContainer{
+        /* border:10px solid black; */
+        width:100%; 
+    }
+    #firstBox{
+        display: flex;
+        justify-content: normal;
+        
+    }
+    #userBtns{
+        display:none;
+    }
+    #drawerUserBtns{
+        display: flex;
+        margin-left: 0px;
+        width: 270px;
+    }
+}

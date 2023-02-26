@@ -1,0 +1,116 @@
+/*---------------------media queries---------------------------------------------*/
+
+@media only screen and (max-width: 1450px) {
+    
+    #facebook{
+        width: 150px;
+    }
+    #google{
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    
+    #facebook{
+        width: 200px;
+    }
+    #google{
+        width: 200px;
+    }
+    #leftBox{
+        display: none;
+    }
+    #loginBox{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    
+    #facebook{
+        width: 180px;
+    }
+    #google{
+        width: 180px;
+    }
+    #leftBox{
+        display: none;
+    }
+    #loginBox{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    
+    #facebook{
+        width: 180px;
+    }
+    #google{
+        width: 180px;
+    }
+    #leftBox{
+        display: none;
+    }
+    #loginBox{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    
+    #facebook{
+        width: 180px;
+    }
+    #google{
+        width: 180px;
+    }
+    #leftBox{
+        display: none;
+    }
+    #loginBox{
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 460px) {
+    
+    #facebook{
+        width: 150px;
+    }
+    #google{
+        width: 150px;
+    }
+    #leftBox{
+        display: none;
+    }
+    #loginBox{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    
+    #facebook{
+        width: 120px;
+    }
+    #google{
+        width: 120px;
+    }
+    #leftBox{
+        display: none;
+    }
+    #loginBox{
+        width: 80%;
+    }
+    /* #switchUserBox{
+        justify-content: center;
+    }
+    #user{
+        width:100px;
+    }
+    #admin{
+        width: 100px;
+    } */
+    
+}

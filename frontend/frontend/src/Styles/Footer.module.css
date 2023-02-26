@@ -1,0 +1,72 @@
+@media only screen and (max-width: 1200px) {
+
+     #firstBox{
+        display: initial;
+     }
+     #subBox2{
+        margin-top: 20px;
+     }
+
+     #secondBox{
+        display: initial;
+     }
+     #secondSubBox2{
+        margin-top: 20px;
+     }
+     
+}
+@media only screen and (max-width: 800px) {
+
+    #firstBox{
+       display: initial;
+    }
+    #subBox2{
+       margin-top: 20px;
+    }
+
+    #secondBox{
+       display: initial;
+    }
+    #secondSubBox2{
+       margin-top: 20px;
+    }
+    #socialMediaBox{
+        display: initial;
+    }
+    #socialMediaBox2{
+        display: initial;
+    }
+    
+}
+@media only screen and (max-width: 550px) {
+
+    #firstBox{
+       display: initial;
+    }
+    #subBox2{
+       margin-top: 20px;
+    }
+
+    #secondBox{
+       display: none;
+    }
+    #secondSubBox2{
+       margin-top: 20px;
+    }
+    #socialMediaBox{
+        display: initial;
+    }
+    #socialMediaBox2{
+        display: initial;
+    }
+    #hiddenBox{
+        display:initial;
+    }
+    #hiddenSubBox1{
+        margin-top: 20px;
+    }
+    #youtube{
+        width: 40%;
+    }
+    
+}
