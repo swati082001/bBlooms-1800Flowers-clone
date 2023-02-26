@@ -17,7 +17,7 @@ const AdminNavbar = () => {
           <Box>
             <Image
               src={logo}
-              w={{ base: "100px", md: "150px", lg: "200px" }}
+              w={{ base: "100px", md: "150px", lg: "140px" }}
               h="60px"
               alt="logo"
               ml="20px"
@@ -32,14 +32,14 @@ const AdminNavbar = () => {
               >
                 <Box>
                   <Text fontSize={{ base: "10px", md: "15px", lg: "15px" }}>
-                    Admin Name
+                    Suneet
                   </Text>
                 </Box>
                 <Box>
                   <Button
                     color={"black"}
                     bgColor="white"
-                    _hover={{ bgColor: "#65388b", color: "white" }}
+                    _hover={{ bgColor: "purple.400", color: "white" }}
                     size={{ base: "xs", md: "md", lg: "md" }}
                   >
                     Logout
@@ -51,7 +51,7 @@ const AdminNavbar = () => {
                 <Button
                   color={"black"}
                   bgColor="white"
-                  _hover={{ bgColor: "#65388b", color: "white" }}
+                  _hover={{ bgColor: "purple.400", color: "white" }}
                   size={{ base: "xs", md: "md", lg: "md" }}
                 >
                   Login

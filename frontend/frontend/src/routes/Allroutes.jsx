@@ -12,7 +12,11 @@ import Sympathy from '../pages/Sympathy/ProductPage'
 import { Login } from '../pages/Login/Login'
 import { Register } from '../pages/Register/Register'
 import Main from '../pages/CHECKOUT/Main'
+
+import Admin from '../pages/AdminPage/Admin'
+
 import Payment from '../pages/PAYMENT/Payment'
+
 
 
 const Allroutes = () => {
@@ -31,8 +35,12 @@ const Allroutes = () => {
           <Route path='/singlecake' element={<SingleCake/>}/>
           <Route path='/checkout' element={<Main/>}/>
           
+
+          <Route path="/admin" element={<Admin/>}/>
+
           <Route path='/payment' element={<Payment/>}/>
           
+
 
         </Routes>
     </div>

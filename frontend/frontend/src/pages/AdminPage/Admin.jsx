@@ -9,11 +9,13 @@ import { GoLocation } from "react-icons/go";
 
 import styles from "..//..//Styles/Admin.module.css";
 import AdminNavbar from "./AdminNavbar";
-import AdminList from "./AdminList";
-import Dashboard from "./Dashboard";
-import ProductCharts from "./ProductCharts";
-import LocationPage from "./LocationPage";
-import UsersPage from "./UsersPage";
+import AdminList from "./sidebarComponent/AdminList";
+import Dashboard from "./sidebarComponent/Dashboard";
+import ProductCharts from "./sidebarComponent/ProductCharts";
+import LocationPage from "./sidebarComponent/LocationPage";
+import UsersPage from "./sidebarComponent/UsersPage";
+import Categories from "./sidebarComponent/Categories";
+import Shops from "./sidebarComponent/Shops";
 
 const Admin = () => {
   let [dashboard, setDashboard] = useState(true);
@@ -21,6 +23,8 @@ const Admin = () => {
   let [products, setProducts] = useState(false);
   let [location, setLocation] = useState(false);
   let [users, setUsers] = useState(false);
+  let [category, setCategory] = useState(false);
+  let [shops, setShops] = useState(false);
 
   let handleDashboard = () => {
     setDashboard(true);
@@ -28,6 +32,8 @@ const Admin = () => {
     setProducts(false);
     setLocation(false);
     setUsers(false);
+    setCategory(false);
+    setShops(false);
   };
   let handleAdminList = () => {
     setDashboard(false);
@@ -35,6 +41,8 @@ const Admin = () => {
     setProducts(false);
     setLocation(false);
     setUsers(false);
+    setCategory(false);
+    setShops(false);
   };
 
   let handleProducts = () => {
@@ -43,6 +51,8 @@ const Admin = () => {
     setProducts(true);
     setLocation(false);
     setUsers(false);
+    setCategory(false);
+    setShops(false);
   };
 
   let handleLocation = () => {
@@ -51,6 +61,8 @@ const Admin = () => {
     setProducts(false);
     setLocation(true);
     setUsers(false);
+    setCategory(false);
+    setShops(false);
   };
 
   let handleUserList = () => {
@@ -59,68 +71,95 @@ const Admin = () => {
     setProducts(false);
     setLocation(false);
     setUsers(true);
+    setCategory(false);
+    setShops(false);
+  };
+  let handleCategory = () => {
+    setDashboard(false);
+    setAdminList(false);
+    setProducts(false);
+    setLocation(false);
+    setUsers(false);
+    setCategory(true);
+    setShops(false);
   };
 
-  console.log(adminList);
+  let handleShops = () => {
+    setDashboard(false);
+    setAdminList(false);
+    setProducts(false);
+    setLocation(false);
+    setUsers(false);
+    setCategory(false);
+    setShops(true);
+  };
+
   return (
     <div>
       <AdminNavbar />
       <div className={styles.mobileSidebar}>
-        <Box mt={4} h="550px" bgColor={"#65388b"}>
-          <VStack spacing={11} align="stretch">
+        <Box mt={4} h="550px" bgColor={"purple.400"}>
+          <VStack spacing={11} align="stretch" bgColor={"purple.400"}>
             <Button
-              bgColor="#65388b"
               color="white"
               width="100%"
+              bgColor="purple.400"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleDashboard}
             >
               <AiOutlineDashboard />
             </Button>
             <Button
-              bgColor="#65388b"
               color="white"
               width="100%"
+              bgColor="purple.400"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleProducts}
             >
               <RiProductHuntLine />
             </Button>
             <Button
-              bgColor="#65388b"
               color="white"
               width="100%"
+              bgColor="purple.400"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleShops}
             >
               <BsShop />
             </Button>
             <Button
-              bgColor="#65388b"
               color="white"
               width="100%"
+              bgColor="purple.400"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleCategory}
             >
               <MdOutlineCategory />
             </Button>
             <Button
-              bgColor="#65388b"
               color="white"
               width="100%"
+              bgColor="purple.400"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleLocation}
             >
               <GoLocation />
             </Button>
             <Button
-              bgColor="#65388b"
               color="white"
               width="100%"
+              bgColor="purple.400"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleUserList}
             >
               <FiUsers />
             </Button>
             <Button
-              bgColor="#65388b"
               color="white"
               width="100%"
+              bgColor="purple.400"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleAdminList}
             >
               <RiAdminLine />
             </Button>
@@ -128,7 +167,7 @@ const Admin = () => {
         </Box>
       </div>
       <div className={styles.sidebar}>
-        <Box mt={4} h="570px" bgColor={"#65388b"}>
+        <Box mt={4} h="570px" bgColor={"purple.400"}>
           <VStack
             spacing={12}
             align="stretch"
@@ -139,9 +178,9 @@ const Admin = () => {
             <Button
               leftIcon={<AiOutlineDashboard />}
               fontFamily="Cambria"
-              bgColor="purple.400"
               color="white"
               width="100%"
+              bgColor="purple.400"
               _hover={{ bgColor: "white", color: "black" }}
               onClick={handleDashboard}
             >
@@ -165,6 +204,7 @@ const Admin = () => {
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleShops}
             >
               Shops
             </Button>
@@ -175,6 +215,7 @@ const Admin = () => {
               color="white"
               width="100%"
               _hover={{ bgColor: "white", color: "black" }}
+              onClick={handleCategory}
             >
               Categories
             </Button>
@@ -219,6 +260,8 @@ const Admin = () => {
       {products && <ProductCharts />}
       {location && <LocationPage />}
       {users && <UsersPage />}
+      {category && <Categories />}
+      {shops && <Shops />}
     </div>
   );
 };
