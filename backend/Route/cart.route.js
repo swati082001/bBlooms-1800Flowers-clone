@@ -42,6 +42,7 @@ cartRouter.post("/add-to-cart", async(req, res)=>{
 })
 
 
+
 cartRouter.delete("/delete/:id", async (req, res) =>{
     try{
         const ID = req.params.id;
@@ -52,6 +53,7 @@ cartRouter.delete("/delete/:id", async (req, res) =>{
         res.status(400).send({"msg":err.message});
     }
 })
+
 
 
 module.exports = {cartRouter};
