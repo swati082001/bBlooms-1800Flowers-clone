@@ -1,12 +1,11 @@
-import { Box, Heading, Text, Image, Input, Button, Link } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Input, Link } from "@chakra-ui/react";
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
     FormHelperText,
 } from '@chakra-ui/react'
 import { useState } from "react";
-import { FcApproval } from "react-icons/fc";
+//import { FcApproval } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 // import { GiSchoolBag, GiSuitcase } from "react-icons/gi";
 

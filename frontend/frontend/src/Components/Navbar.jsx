@@ -5,10 +5,8 @@ import {
     PopoverContent,
     PopoverHeader,
     PopoverBody,
-    PopoverFooter,
     PopoverArrow,
     PopoverCloseButton,
-    PopoverAnchor,
 } from '@chakra-ui/react';
 import {ChevronDownIcon} from "@chakra-ui/icons";
 import {
@@ -16,15 +14,17 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
 } from '@chakra-ui/react'
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Logo from ".././assets/logo.png"
+import {getCart} from "../redux/CART-REDUX/cart.action"
+import { useSelector, useDispatch } from "react-redux";
 
 export const Navbar = () => {
+    let {cart} = useSelector((store) => store.cartManager);
+    // console.log(cart.length);
+    const dispatch = useDispatch()
 
     const location = useLocation();
     const [showMenu,setShowMenu] = useState(false);
@@ -32,8 +32,8 @@ export const Navbar = () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null ;
 
     useEffect(()=>{
+        dispatch(getCart())
         if(showMenu === false){
-
             setShowMenu(true);
             setShowLogin(false);
         }
@@ -95,7 +95,7 @@ export const Navbar = () => {
 
                 <Link href="/" w="150px" >
 
-                    <Image w="100%" h="60px" src="/websiteLogo.png" alt="website_logo" />
+                    <Image w="100%" h="60px" src={Logo} alt="website_logo" />
                 </Link>
 
                 <Box display="flex" w='auto'>
@@ -153,7 +153,7 @@ export const Navbar = () => {
 
                 <Box display="flex" gap="5px" >
 
-                    <Button bg="purple.500" >Cart</Button> <Box border="2px solid black" w="40px" ><Text mt="5px" >{0}</Text></Box>
+                    <Button bg="purple.500" >Cart</Button> <Box border="2px solid black" w="40px" ><Text mt="5px" >{cart.length}</Text></Box>
                 </Box>
             </Box>
 

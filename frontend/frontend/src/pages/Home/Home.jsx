@@ -1,8 +1,10 @@
 import { Box, Link, Image, Heading, Text, Button, Select, Input } from "@chakra-ui/react";
+import { Navbar } from "../../Components/Navbar";
 
 export const Home = () => {
 
     return <Box h="auto" >
+        <Navbar />
         <Box p="10px" border="1px solid red">
             <Link>PRESIDENTS DAY SALE: SAVE UP TO 40% | SHOP NOW </Link>
         </Box>

@@ -14,6 +14,11 @@ import SingleFlower from '../pages/Occasion/SingleProductPage'
 import SingleCake from '../pages/BirthdayCake/SingleProductPage'
 import SinglePlant from '../pages/Sympathy/SingleProductPage'
 
+import Admin from '../pages/AdminPage/Admin'
+
+import Payment from '../pages/PAYMENT/Payment'
+
+
 
 const Allroutes = () => {
   return (
@@ -22,21 +27,20 @@ const Allroutes = () => {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
-
-          <Route path='/flower' element={<Flower />}/>
-          <Route path='/flower/:id' element={<SingleFlower/>}/>
-
-        <Route path='/sympathy' element={<Sympathy/>}/>
-        <Route path='/sympathy/:id' element={<SinglePlant/>}/>
-          <Route path='/birthdaycake' element={<BirthdayCake/>}/>
-          <Route path='/birthdaycake/:id' element={<SingleCake/>}/>
-          
-
+          <Route path='/birthday' element={<Birthday />}/>
+          <Route path='/birthday/:id' element={<SingleProductPage />}/>
+          <Route path='/sympathy' element={<Sympathy />}/>
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/checkout' element={<Checkout/>}/>
+          <Route path='/singleproductpage' element={<SingleProductPage/>}/>
           <Route path='/birthdaycake' element={<BirthdayCake/>}/>
           <Route path='/checkout' element={<Main/>}/>
           
+
+          <Route path="/admin" element={<Admin/>}/>
+
+          <Route path='/payment' element={<Payment/>}/>
+          
+
 
         </Routes>
     </div>
