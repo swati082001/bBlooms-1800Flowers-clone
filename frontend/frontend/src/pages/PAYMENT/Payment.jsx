@@ -75,16 +75,16 @@ const Payment = () => {
     e.preventDefault();
     const code = {otp}
     console.log(code);
-    window.confirmationResult.confirm(code).then((result) => {
-      // User signed in successfully.
-      const user = result.user;
-      console.log(JSON.stringify(user));
-      console.log("otp verified");
-        // ...
-      }).catch((error) => {
-      // User couldn't sign in (bad verification code?)
-      // ...
-      });
+    // window.confirmationResult.confirm(code).then((result) => {
+    //   // User signed in successfully.
+    //   const user = result.user;
+    //   console.log(JSON.stringify(user));
+    //   console.log("otp verified");
+    //     // ...
+    //   }).catch((error) => {
+    //   // User couldn't sign in (bad verification code?)
+    //   // ...
+    //   });
       if(code !== ""){
         toast({
           position:"top",
