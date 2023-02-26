@@ -7,16 +7,12 @@ import {
   Flex,
   Grid,
   Heading,
-  Image,
   Text,
   useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getUser,
-  removeUser,
-} from "../../../Redux/AdminRedux/Users/user.action";
+import {getUser,removeUser} from "../../../redux/AdminRedux/Users/user.action"
 
 const UsersPage = () => {
   let { users } = useSelector((store) => store.userManager);

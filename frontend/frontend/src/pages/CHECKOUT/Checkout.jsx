@@ -7,7 +7,7 @@ import countryList from 'react-select-country-list'
 import CartFooter from '../CART/CartFooter'
 import { useToast } from '@chakra-ui/react'
 import { useSelector,useDispatch } from 'react-redux'
-import {getUser} from "../../redux/AdminRedux/user.action"
+import {getUser,removeUser} from "../../redux/AdminRedux/Users/user.action"
 import { getCart } from '../../redux/CART-REDUX/cart.action'
 import axios from 'axios'
 
@@ -24,7 +24,7 @@ const Checkout = () => {
     const toast = useToast()
     
     const {users} = useSelector((store)=>store.userManager)
-    const {cart} = useSelector((store)=>store.cartManager)
+    const {cart} = useSelector((store)=>store.cart)
     const dispatch = useDispatch()
      
      console.log(users);

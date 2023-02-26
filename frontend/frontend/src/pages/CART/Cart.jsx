@@ -18,7 +18,7 @@ const Cart = () => {
   const navigate = useNavigate()
   const toast = useToast()
 
-  let {cart} = useSelector((store) => store.cartManager);
+  let {cart} = useSelector((store) => store.cart);
 
   
   let sum=0;

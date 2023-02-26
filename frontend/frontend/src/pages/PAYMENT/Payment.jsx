@@ -19,7 +19,7 @@ import {auth,db} from "../../firebase/firebase"
 import axios from "axios"
 import { useSelector,useDispatch } from 'react-redux'
 import { Checkout_get } from '../../redux/CHECKOUT-REDUX/checkout.actions'
-import { getUser } from '../../redux/AdminRedux/user.action'
+import { getUser } from '../../redux/AdminRedux/Users/user.action'
 import { getCart } from '../../redux/CART-REDUX/cart.action'
 
 
@@ -37,8 +37,8 @@ const Payment = () => {
   const toast = useToast()
   const navigate = useNavigate()
   const {users} = useSelector((store)=>store.userManager)
-    const {cart} = useSelector((store)=>store.cartManager)
-    const {checkout} = useSelector((store) =>store.checkoutManager)
+    const {cart} = useSelector((store)=>store.cart)
+    const {checkout} = useSelector((store) =>store.checkout)
     const dispatch = useDispatch()
     console.log(users);
     console.log(cart);

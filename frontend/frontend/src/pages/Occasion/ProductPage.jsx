@@ -18,7 +18,6 @@ import { Heading, Image, SimpleGrid, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 import {
-  ArrowRightIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";

@@ -2,9 +2,6 @@ import {
   Box,
   Button,
   Flex,
-  FormControl,
-  FormLabel,
-  Heading,
   Image,
   Input,
   Modal,
@@ -27,14 +24,13 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { BsInbox } from "react-icons/bs";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getPlant,
   removePlant,
   updatePlant,
-} from "../../../Redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
+} from "../../../redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
 const PlantShops = () => {
   let [id, setId] = useState("");
   let [price, setPrice] = useState("");

@@ -21,9 +21,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getCart,
   removeCart,
-} from "../../../Redux/AdminRedux/Cart/cart.action";
+} from "../../../redux/AdminRedux/Cart/cart.action";
 import { RiDeleteBinFill } from "react-icons/ri";
-import { removeCake } from "../../../Redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+
 
 const Dashboard = () => {
   let { carts } = useSelector((store) => store.cartManager);

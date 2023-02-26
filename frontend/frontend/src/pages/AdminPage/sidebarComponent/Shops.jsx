@@ -36,15 +36,15 @@ import PlantShops from "../shopsComponents/Plants.shops";
 import {
   addCake,
   getCake,
-} from "../../../Redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+} from "../../../redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
 import {
   addFlower,
   getFlower,
-} from "../../../Redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
+} from "../../../redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
 import {
   addPlant,
   getPlant,
-} from "../../../Redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
+} from "../../../redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
 
 const Shops = () => {
   let [flower, setFlower] = useState(true);

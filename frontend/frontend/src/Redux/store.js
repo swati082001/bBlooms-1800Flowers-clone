@@ -12,6 +12,8 @@ import { FlowerReducer } from "./AdminRedux/Products/AnniversaryFlowers/Annivers
 import { CakeReducer } from "./AdminRedux/Products/BirthDayCakes/BirthDayCakes.reducer";
 import { PlantReducer } from "./AdminRedux/Products/SympathyPlants/SympathyPlants.reducer";
 import { userReducer } from "./AdminRedux/Users/user.reducer";
+import CARTREDUCER from "./CART-REDUX/cart.reducer";
+import checkoutReducer from "./CHECKOUT-REDUX/checkout.reducer";
 
 let rootReducer = combineReducers({
   userManager: userReducer,
@@ -20,6 +22,8 @@ let rootReducer = combineReducers({
   cakeManager: CakeReducer,
   flowerManager: FlowerReducer,
   cartManager: cartReducer,
+  cart:CARTREDUCER,
+  checkout:checkoutReducer
 });
 let composeEnhancer = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 

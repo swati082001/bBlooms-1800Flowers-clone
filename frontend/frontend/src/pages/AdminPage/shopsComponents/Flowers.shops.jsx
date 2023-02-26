@@ -2,9 +2,6 @@ import {
   Box,
   Button,
   Flex,
-  FormControl,
-  FormLabel,
-  Heading,
   Image,
   Input,
   Modal,
@@ -27,14 +24,13 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { BsInbox } from "react-icons/bs";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getFlower,
   removeFlower,
   updateFlower,
-} from "../../../Redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
+} from "../../../redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
 
 const FlowerShops = () => {
   let [id, setId] = useState("");

@@ -23,14 +23,14 @@ import {
   Toast,
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { useEffect,  useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   addAdmin,
   getAdmin,
   removeAdmin,
-} from "../../../Redux/AdminRedux/Admins/admin.action";
+} from "../../../redux/AdminRedux/Admins/admin.action";
 
 export default function AdminList() {
   let [signpCreds, setSignupCreds] = useState({});

@@ -2,9 +2,6 @@ import {
   Box,
   Button,
   Flex,
-  FormControl,
-  FormLabel,
-  Heading,
   Image,
   Input,
   Modal,
@@ -35,7 +32,7 @@ import {
   getCake,
   removeCake,
   updateCake,
-} from "../../../Redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+} from "../../../redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
 
 const CakeShops = () => {
   let [id, setId] = useState("");
