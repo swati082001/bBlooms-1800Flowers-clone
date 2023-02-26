@@ -9,7 +9,7 @@ const SampleProductPage = () => {
 
 let  getdata = () =>{
 
-     axios.get("https://itchy-ruby-tweed-jacket.cyclic.app/products/allflower").then(((res)=>(
+     axios.get("https://fakestoreapi.com/products").then(((res)=>(
             setprod(res.data)
      ))).catch((err) => console.log(err))
 
@@ -26,9 +26,9 @@ console.log(prod)
   return (
     <Box>
 
-    {/* <SimpleGrid border={"2px solid"} gap={5} columns={{base:1, md:2 , lg:3}} > */}
+    <SimpleGrid border={"2px solid"} gap={5} columns={{base:1, md:2 , lg:3}} >
    
-    {/* {
+    {
         prod.map((el) => (
      <Stack gap={5} border="2px solid">
         <Image src={el.image} h="350px"/>
@@ -43,9 +43,7 @@ console.log(prod)
         )
     }
     
-</SimpleGrid> */}
-
-
+</SimpleGrid>
 
       
     </Box>

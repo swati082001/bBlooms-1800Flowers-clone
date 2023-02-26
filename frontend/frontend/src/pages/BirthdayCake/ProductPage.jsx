@@ -1,4 +1,14 @@
+// import React from 'react'
 
+// const BirthdayCake = () => {
+//   return (
+//     <div>
+
+//     </div>
+//   )
+// }
+
+// export default BirthdayCake
 
 import React from "react";
 import {
@@ -7,8 +17,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Button,
-  Img,
-  Input,
   Menu,
   MenuButton,
   MenuItem,
@@ -24,55 +32,16 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const BirthdayCake = () => {
   let [prod, setprod] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [count, setcount] = useState(0);
-  const [query, setQuery] = useState("");
 
   let getdata = () => {
     axios
-      .get("https://weary-red-oyster.cyclic.app/products/birthdaycake")
-      .then((res) => {
-        setprod(res.data);
-        console.log(res);
-      })
-
+      .get("https://fakestoreapi.com/products")
+      .then((res) => setprod(res.data))
       .catch((err) => console.log(err));
   };
-
-
-
-  let handleHigh = () => {
-    setcount(count + 1);
-    let highdata = prod.sort((a, b) => {
-      return +b.price - +a.price;
-    });
-
-    setprod(highdata);
-  };
-
-  let handleLow = () => {
-    setcount(count + 1);
-    let lowdata = prod.sort((a, b) => {
-      return +a.price - +b.price;
-    });
-
-    setprod(lowdata);
-  };
-
-  const handleInputChange = (event) => {
-    const query = event.target.value.toLowerCase();
-    setQuery(query);
-    const filteredData = prod.filter((item) =>
-      item.type.toLowerCase().includes(query)
-    );
-    setprod(filteredData);
-  };
-
-
 
   useEffect(() => {
     getdata();
@@ -121,34 +90,6 @@ const BirthdayCake = () => {
             birthday treats for girls & boys of every age. We also offer same
             day cake delivery!
           </p>
-
-          <div
-            style={
-              {
-                // border:"7px solid black"
-                display:"flex",
-                justifyContent:"space-around"
-              }
-            }
-          >
-            <Button mr={"10px"} border={"1px solid grey"} onClick={handleHigh}>
-              {" "}
-              High to Low
-            </Button>
-            <Button ml={"10px"} border={"1px solid grey"} onClick={handleLow}>
-              {" "}
-              Low to High
-            </Button>
-            <Input w={"30%"} border={"1px solid grey"}
-              type="text"
-              value={query}
-              onChange={handleInputChange}
-              placeholder="Search......"
-            />
-          </div>
-            
-
-
         </div>
       </div>
 
@@ -443,45 +384,37 @@ const BirthdayCake = () => {
               <Stack
                 //   border="2px solid"
                 h={450}
-                
               >
-                <Link to={`/birthdaycake/${el._id}`}>
-                  <Image src={el.image} h="360px" />
-                </Link>
-
-                <Img 
-                  style={{marginLeft:"-100px",height: "14px" }}
-                  src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8d4549d3cac15860/61e09d4f2e109d6c649d4aa4/PP_EligibleIcon.svg?quality=75&auto=webp&optimize={medium}"
-                  alt="passport_pic"
-                />
-                <h2 style={{ textAlign: "left", fontSize: "18px" }}>
-                  {el.type}
-                </h2>
-                <h2 style={{ textAlign: "left" }}>
-                  <Text as="b">{el.price}</Text>
-                </h2>
-
                 {/* <Image src={el.image} h="320px"/> */}
                 {/* <Heading h={50}>{el.title}</Heading> */}
-                {/* <Image
+                <Image
                   cursor="pointer"
                   href="/singleproductpage"
                   src="https://cdn1.1800baskets.com/wcsstore/Baskets/images/catalog/4106821x.jpg?width=545&height=597&quality=80&auto=webp&auto=webp&optimize={medium}"
                   alt="photo1"
-                /> */}
+                />
                 {/* <Image  h="16px" src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8d4549d3cac15860/61e09d4f2e109d6c649d4aa4/PP_EligibleIcon.svg?quality=75&auto=webp&optimize={medium}" alt="pass"/> */}
                 {/* <Text>{el.price}</Text> */}
                 {/* <Text>{el.description}</Text> */}
-                {/* <img
+                <img
                   style={{ marginLeft: "-99px", height: "14px" }}
                   src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt8d4549d3cac15860/61e09d4f2e109d6c649d4aa4/PP_EligibleIcon.svg?quality=75&auto=webp&optimize={medium}"
                   alt=""
-                /> */}
-                {/* <h2 style={{ textAlign: "left", fontSize: "18px" }}>
+                />
+                <h2 style={{ textAlign: "left", fontSize: "18px" }}>
                   Floral Embrace™
-                </h2> */}
+                </h2>
                 {/* <h2 style={{Text:"b"}}>$49.99 - $79.99</h2> */}
-                
+                <Text
+                  as="b"
+                  style={{
+                    textAlign: "left",
+                    fontSize: "18px",
+                    marginTop: "-2px",
+                  }}
+                >
+                  $49.99 - $79.99
+                </Text>
               </Stack>
             ))}
           </SimpleGrid>
