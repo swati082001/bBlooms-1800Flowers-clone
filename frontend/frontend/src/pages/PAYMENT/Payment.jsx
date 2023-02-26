@@ -16,6 +16,11 @@ import { useDisclosure } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { getAuth, RecaptchaVerifier,signInWithPhoneNumber } from "firebase/auth";
 import {auth,db} from "../../firebase/firebase"
+import axios from "axios"
+import { useSelector,useDispatch } from 'react-redux'
+import { Checkout_get } from '../../redux/CHECKOUT-REDUX/checkout.actions'
+import { getUser } from '../../redux/AdminRedux/user.action'
+import { getCart } from '../../redux/CART-REDUX/cart.action'
 
 
 
@@ -31,8 +36,26 @@ const Payment = () => {
   const auth = getAuth();
   const toast = useToast()
   const navigate = useNavigate()
+  const {users} = useSelector((store)=>store.userManager)
+    const {cart} = useSelector((store)=>store.cartManager)
+    const {checkout} = useSelector((store) =>store.checkoutManager)
+    const dispatch = useDispatch()
+    console.log(users);
+    console.log(cart);
+    let firstObj;
+    setTimeout(()=>{
+       firstObj = checkout[0]
+    },2000)
+   // console.log(checkout[0]);
 
-  
+  React.useEffect(()=>{
+     dispatch(Checkout_get())
+     dispatch(getCart())
+     dispatch(getUser())
+  },[])
+
+  let sum=0;
+  let final=0;
 
     const NoCardName = cardName === ""
     const NoNum = num === 0
@@ -215,15 +238,9 @@ const Payment = () => {
 
                   <br/>
                   <hr/>
-                  <br/>
-                  <Text textStyle="Cardtop" mb={"20px"}>Billing Address:</Text>
+                  
 
-                  <Box>
-                    {/* mapp the address here */}
-                  </Box>
-
-                  <br/>
-                  <hr/>
+                  
                   <br/>
                   <Text textStyle="Cardtop" mb={"20px"}>Contact Info:</Text>
                   <Text textStyle={"CartBody"} mb="10px">Your email address :</Text>
@@ -273,21 +290,25 @@ const Payment = () => {
 
 
           {/* second part */}
-          <Box width={{base:"100%",sm:"100%",md:"35%",lg:"43%"}} margin={"auto"}  h={{base:"auto",sm:"auto",md:"900px",lg:"900px"}} p={{base:4,sm:4,md:4,lg:4}} position={"sticky"} >
-
-          <Card  display={{sm:"none",md:"none",base:"none",large:"block"}} mt={"20px"} p={4} borderTop="2px solid #65388b">
-                <Text  textAlign={"center"} textStyle="Cardtop">Hello, Swati</Text>
+           {/* second part */}
+           <Box width={{base:"100%",sm:"100%",md:"35%",lg:"43%"}} margin={"auto"}  h={{base:"auto",sm:"auto",md:"900px",lg:"900px"}} p={{base:4,sm:4,md:4,lg:4}} position={"sticky"} >
+              <Card  display={{sm:"none",md:"none",base:"none",large:"block"}} mt={"20px"} p={4} borderTop="2px solid #65388b">
+                <Text  textAlign={"center"} textStyle="Cardtop">Hello, User</Text>
               </Card>
-
-            <Card mt={"20px"} p={4} border="2px solid #65388b">
+          
+              <Card mt={"20px"} p={4} border="2px solid #65388b">
                 <Text mb={"20px"} textStyle="Cardtop">Order Summary</Text>
                 
                 <Text mb={"20px"} textStyle="Cardtop">PRICE DETAILS</Text>
 
                 <Box w="100%" mt={1}>
                     <Flex justifyContent="space-between">
-                        <Text textStyle="Cardtop" >Price ()</Text>
-                        <Text textStyle="CartBody">₹</Text>
+                        <Text textStyle="Cardtop" >Price ({cart.length})</Text>
+                        <Text textStyle="CartBody">₹
+                        {cart.forEach((el)=>{
+                          sum = sum+ el.price
+                        })} {Math.floor(sum)}
+                        </Text>
                     </Flex>
                 </Box>
 
@@ -295,7 +316,10 @@ const Payment = () => {
                   <Box w="100%" mt={2}>
                     <Flex justifyContent="space-between">
                       <Text textStyle="Cardtop">AMOUNT</Text>
-                      <Text textStyle="CartBody" color="green">xyz</Text>
+                      <Text textStyle="CartBody" color="green">₹
+                        {cart.forEach((el)=>{
+                          final = final+ el.price
+                        })} {Math.floor(final)}</Text>
                       </Flex>
                   </Box>
                   <br/>
@@ -356,7 +380,7 @@ const Payment = () => {
                   
                 </CardFooter>
               </Card>
-        </Box>
+            </Box>
             </Flex>
       </Box>
     </div>
