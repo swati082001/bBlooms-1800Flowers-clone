@@ -1,10 +1,15 @@
 import React,{useState,useMemo} from 'react'
 import Styles from "./Checkout.module.css"
 import Select from 'react-select'
-import { Box,Flex,Card,Text,Image,Button, FormControl,Input ,FormErrorMessage,FormHelperText,Divider,CardFooter,ListItem,UnorderedList} from '@chakra-ui/react'
+import { Box,Flex,Card,Text,Image, FormControl,Input ,FormErrorMessage,FormHelperText,Divider,CardFooter,ListItem,UnorderedList} from '@chakra-ui/react'
 import { DeleteIcon,CheckIcon} from '@chakra-ui/icons'
 import countryList from 'react-select-country-list'
 import CartFooter from '../CART/CartFooter'
+import { useToast } from '@chakra-ui/react'
+import { useSelector,useDispatch } from 'react-redux'
+import {getUser} from "../../redux/AdminRedux/user.action"
+import { getCart } from '../../redux/CART-REDUX/cart.action'
+import axios from 'axios'
 
 
 const Checkout = () => {
@@ -16,7 +21,20 @@ const Checkout = () => {
     const [city,setCity] = useState(''||"Bangalore")
     const[state,setState] = useState(''||"Karnataka")
     const [country,setCountry] = useState('')
+    const toast = useToast()
     
+    const {users} = useSelector((store)=>store.userManager)
+    const {cart} = useSelector((store)=>store.cartManager)
+    const dispatch = useDispatch()
+     
+     console.log(users);
+     console.log(cart);
+     
+    React.useEffect(()=>{
+      dispatch(getUser())
+      dispatch(getCart())
+      
+    },[])
 
     const options = useMemo(() => countryList().getData(), [])
     const locationopt = [
@@ -44,8 +62,19 @@ const Checkout = () => {
         const NoLname = lname=== "";
         const Noaddress = address === "";
         const NoZip = zip === 0;
+
+        function checkoutToast(){
+          toast({
+            position: 'top',
+            title: 'Address has been successfully added',
+            description: "Now you can proceed to the payment portal",
+            status: 'success',
+            duration: 4000,
+            isClosable: true,
+          })
+        }
         
-        function handleSubmit(event){
+        async function handleSubmit(event){
         event.preventDefault();
         const obj={
             first:fname,
@@ -67,41 +96,45 @@ const Checkout = () => {
         setLocation('')
 
         console.log(obj);
-    }
+        let res = await axios.post(`https://weary-red-oyster.cyclic.app/checkout/add`,obj)
+        console.log(res.data);
 
+        setTimeout(()=>{checkoutToast()},2000)
+        
+    }
+    let sum=0;
+    let final=0;
 
   return (
     <div className={Styles.Checkout}>
        
         <Box width={{base:"100%",sm:"100%",md:"100%",lg:"75%"}}  margin={"auto"}  h={{base:"auto",sm:"auto",md:"auto",lg:"auto"}} >
         <Flex direction={{base:"column",sm:"column",md:"row",lg:"row"}} justifyContent={{base:"space-around",sm:"space-around",md:"space-around",lg:"space-between"}}>
-            <Box width={{base:"100%",sm:"100%",md:"70%",lg:"60%"}} margin={"auto"}  h={{base:"auto",sm:"auto",md:"900px",lg:"900px"}} p={{base:4,sm:4,md:4,lg:4}} position="relative">
+            <Box width={{base:"100%",sm:"100%",md:"70%",lg:"60%"}} margin={"auto"}  h={{base:"auto",sm:"auto",md:"900px",lg:"900px"}} p={{base:4,sm:4,md:4,lg:4}} position="relative" mb={{lg:"70px"}}>
              
                 <Text textStyle="Carthead">Delivery Information</Text>
                 <Card bg={"white"} mt="20px" p={4} border="2px solid #65388b">
-                  <Text textStyle="Cardtop">Item 1 out of 1:</Text>
+                  <Text textStyle="Cardtop">Item {cart.length} out of {cart.length}:</Text>
                   <hr/>
                   
-                  
-                  <Box mt={"25px"}>
-                    <Flex justifyContent={"space-between"}>
-                      <Image w={"20%"} src='https://cdn2.1800flowers.com/wcsstore/Flowers/images/catalog/161834s050218c.jpg?quality=60'></Image>
+                  {cart.map((el)=>(
+                  <Box key={el._id} mt={"25px"}>
+                    <Flex justifyContent={"space-around"}>
+                      <Image w={"20%"} src={el.image}></Image>
 
+                      
                       <Box textAlign={"initial"}>
-                         <Text textStyle="Cardtop">Peace Lily Plant for Sympathy</Text>
-                         <Text textStyle="CartBody">Item# : </Text>
-                         <Text textStyle="CartBody">Sold By : </Text>
-                         <Text textStyle="CartBody">Price : </Text>   
-                         <Text textStyle="CartBody" mr={"15px"}>Qty:  1</Text>   
+                         <Text textStyle="Cardtop">{el.type}</Text>
+                         <Text textStyle="CartBody">Item# : {el._id} </Text>
+                         <Text textStyle="CartBody">Sold By : {el.company}</Text>
+                         <Text textStyle="CartBody">Price : ₹ {el.price}</Text>   
                         
-                      </Box>
-
-                      <Box>
-                         <DeleteIcon w={6} h={8} color="#65388b"/>
                       </Box>
 
                     </Flex>
                   </Box>
+                        
+                        ))}
                   <br/>
                   <hr/>
                   <br/>
@@ -130,7 +163,7 @@ const Checkout = () => {
                     </Flex>
 
                     <FormControl isRequired mt={"10px"}>
-                    <Select placeholder={"Location Name"||location} options={locationopt} value={location} onChange={changeLocation}> </Select>
+                    <Select placeholder={location || "Loaction Type"} options={locationopt} value={location} onChange={changeLocation}> </Select>
                     </FormControl>
 
                     <FormControl isRequired isInvalid={Noaddress} mt={"10px"}>
@@ -160,7 +193,7 @@ const Checkout = () => {
                     </Flex>
 
                     <FormControl mt={"10px"}>
-                    <Select placeholder={"Country Name"||country} options={options} value={country} onChange={changeHandler} />
+                    <Select placeholder={country || "Country Name"} options={options} value={country} onChange={changeHandler} />
                     </FormControl>
 
 
@@ -170,15 +203,18 @@ const Checkout = () => {
 
                   </form>
                   <br/>
-                  <hr/>
+                  {/* <hr/>
                   <br/>
-                  <Text textStyle="Cardtop" mb={"20px"}>Delivery Date:</Text>
+                  <Text textStyle="Cardtop" mb={"20px"}>Delivery Date:</Text> */}
                 </Card>
 
              
             </Box>
              {/* second part */}
           <Box width={{base:"100%",sm:"100%",md:"35%",lg:"43%"}} margin={"auto"}  h={{base:"auto",sm:"auto",md:"900px",lg:"900px"}} p={{base:4,sm:4,md:4,lg:4}} position={"sticky"} >
+              <Card  display={{sm:"none",md:"none",base:"none",large:"block"}} mt={"20px"} p={4} borderTop="2px solid #65388b">
+                <Text  textAlign={"center"} textStyle="Cardtop">{`Hello User`}</Text>
+              </Card>
           
               <Card mt={"20px"} p={4} border="2px solid #65388b">
                 <Text mb={"20px"} textStyle="Cardtop">Order Summary</Text>
@@ -187,8 +223,12 @@ const Checkout = () => {
 
                 <Box w="100%" mt={1}>
                     <Flex justifyContent="space-between">
-                        <Text textStyle="Cardtop" >Price ()</Text>
-                        <Text textStyle="CartBody">₹</Text>
+                        <Text textStyle="Cardtop" >Price ({cart.length})</Text>
+                        <Text textStyle="CartBody">₹
+                        {cart.forEach((el)=>{
+                          sum = sum+ el.price
+                        })} {Math.floor(sum)}
+                        </Text>
                     </Flex>
                 </Box>
 
@@ -196,7 +236,10 @@ const Checkout = () => {
                   <Box w="100%" mt={2}>
                     <Flex justifyContent="space-between">
                       <Text textStyle="Cardtop">AMOUNT</Text>
-                      <Text textStyle="CartBody" color="green">xyz</Text>
+                      <Text textStyle="CartBody" color="green">₹
+                        {cart.forEach((el)=>{
+                          final = final+ el.price
+                        })} {Math.floor(final)}</Text>
                       </Flex>
                   </Box>
                   <br/>

@@ -12,7 +12,11 @@ import Sympathy from '../pages/Sympathy/ProductPage'
 import { Login } from '../pages/Login/Login'
 import { Register } from '../pages/Register/Register'
 import Main from '../pages/CHECKOUT/Main'
+
 import Admin from '../pages/AdminPage/Admin'
+
+import Payment from '../pages/PAYMENT/Payment'
+
 
 
 const Allroutes = () => {
@@ -26,14 +30,17 @@ const Allroutes = () => {
           <Route path='/birthday/:id' element={<SingleProductPage />}/>
           <Route path='/sympathy' element={<Sympathy />}/>
           <Route path='/cart' element={<Cart/>}/>
-
-          <Route path='/checkout' element={<Checkout/>}/>
           <Route path='/singleproductpage' element={<SingleProductPage/>}/>
           <Route path='/birthdaycake' element={<BirthdayCake/>}/>
           <Route path='/singlecake' element={<SingleCake/>}/>
           <Route path='/checkout' element={<Main/>}/>
           
+
           <Route path="/admin" element={<Admin/>}/>
+
+          <Route path='/payment' element={<Payment/>}/>
+          
+
 
         </Routes>
     </div>

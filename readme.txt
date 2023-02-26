@@ -16,3 +16,5 @@ npm i react-router-dom@6
 npm i recharts
 
 npm i axios
+
+npm i firebase
