@@ -1,5 +1,6 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Bar,
   BarChart,
@@ -11,24 +12,39 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { getFlower } from "../../../redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
+import { getCake } from "../../../redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+import { getPlant } from "../../../redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
 const ProductCharts = () => {
+  let dispatch = useDispatch();
+  let { flowers } = useSelector((store) => store.flowerManager);
+  let { cakes } = useSelector((store) => store.cakeManager);
+  let { plants } = useSelector((store) => store.plantManager);
+
   let data = [
     {
       name: "Birthday Cakes",
-      count: 20,
+      count: cakes.length,
       color: "blue",
     },
     {
       name: "Sympathy Plants",
-      count: 25,
+      count: plants.length,
       color: "green",
     },
     {
       name: "Anniversary Flowers",
-      count: 10,
+      count: flowers.length,
       color: "red",
     },
   ];
+
+  useEffect(() => {
+    dispatch(getFlower());
+    dispatch(getCake());
+    dispatch(getPlant());
+  }, []);
+
   return (
     <div>
       <Box w="84%" ml="16%" mt="50px" h="auto" p={10} bgColor="#f7f7f7 ">
@@ -56,7 +72,7 @@ const ProductCharts = () => {
           </BarChart>
         </Box>
 
-        {/* Flowers */}
+        {/* Cakes */}
 
         <Box margin="auto" mt="40px">
           <Box w="100%" bgColor="#e8ecef" mt={6} mb={6} p={3}>
@@ -65,11 +81,11 @@ const ProductCharts = () => {
           <LineChart
             width={1000}
             height={400}
-            data={data}
+            data={cakes}
             margin={{ top: 1, right: 1, left: 1, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="30 30" />
-            <XAxis dataKey="id" />
+            <XAxis dataKey="price" />
             <YAxis type="number" domain={[0, 400]} />
             <Tooltip />
             <Legend />
@@ -82,7 +98,7 @@ const ProductCharts = () => {
           </LineChart>
         </Box>
 
-        {/* Chocolates */}
+        {/* Plants */}
         <Box margin="auto" mt="40px">
           <Box w="100%" bgColor="#e8ecef" mt={6} mb={6} p={3}>
             <Text color={"red"}>Sympathy Plants</Text>
@@ -90,11 +106,11 @@ const ProductCharts = () => {
           <LineChart
             width={1200}
             height={600}
-            data={data}
+            data={plants}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="45 45" />
-            <XAxis dataKey="id" />
+            <XAxis dataKey="price" />
             <YAxis type="number" domain={[1000, 60000]} />
             <Tooltip />
             <Legend />
@@ -107,7 +123,7 @@ const ProductCharts = () => {
           </LineChart>
         </Box>
 
-        {/* Cakses */}
+        {/* Flowers*/}
         <Box margin="auto" mt="40px">
           <Box w="100%" bgColor="#e8ecef" mt={6} mb={6} p={3}>
             <Text color={"red"}>Anniversary Flowers</Text>
@@ -115,11 +131,11 @@ const ProductCharts = () => {
           <LineChart
             width={1200}
             height={500}
-            data={data}
+            data={flowers}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="50 50" />
-            <XAxis dataKey="id" />
+            <XAxis dataKey="price" />
             <YAxis type="string" domain={[0, 1000]} />
             <Tooltip />
             <Legend />

@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
@@ -16,7 +17,7 @@ function App() {
 
       if(location){
     
-        if(location.pathname === "/register" || location.pathname === "/login" ){
+        if(location.pathname === "/register" || location.pathname === "/login" || location.pathname === "/checkout" || location.pathname === "/admin" ){
           setVisibleNav(false);
           setVisibleFooter(false);
         }else{
@@ -33,6 +34,7 @@ function App() {
       { visibleFooter && <Footer />} 
     </div>
   );
+
 }
 
 export default App;

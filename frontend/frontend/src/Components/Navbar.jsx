@@ -5,10 +5,8 @@ import {
     PopoverContent,
     PopoverHeader,
     PopoverBody,
-    PopoverFooter,
     PopoverArrow,
     PopoverCloseButton,
-    PopoverAnchor,
 } from '@chakra-ui/react';
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
@@ -16,6 +14,7 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
+
     MenuItemOption,
     MenuGroup,
     MenuOptionGroup,
@@ -41,6 +40,7 @@ import {
 
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+
 import styles from "../styles/Navbar.module.css";
 //---------------------------Navbar Menu Data------------------------------------------------------------------
 
@@ -49,12 +49,21 @@ const occasion = ["Birthday", "Sympathy", "Love & Romance", "Get Well"]
 const sympathy = ["Sympathy Plants", "All Sympathy", "Same Day Delivery", "Cremation Flowers", "Funeral Flowers for Service", ""];
 let listValue;
 
+import Logo from ".././assets/logo.png"
+import {getCart} from "../redux/CART-REDUX/cart.action"
+import { useSelector, useDispatch } from "react-redux";
+
+
 //---------------------------Navbar starts here------------------------------------------------------------------
 export const Navbar = () => {
+    let {cart} = useSelector((store) => store.cart);
+    // console.log(cart.length);
+    const dispatch = useDispatch()
 
     const location = useLocation();
     const [showMenu, setShowMenu] = useState(false);
     const [showLogin, setShowLogin] = useState(true);
+
 
     const [mainList, setMainList] = useState(true);
     const [subList1, setSubList1] = useState(false);
@@ -66,8 +75,13 @@ export const Navbar = () => {
     const btnRef = useRef()
 
     useEffect(() => {
-
+          dispatch(getCart())
         if (currentUser && showMenu === false) {
+
+
+    
+        
+        if(showMenu === false){
 
             setShowMenu(true);
             setShowLogin(false);
@@ -181,9 +195,11 @@ export const Navbar = () => {
             document.getElementById("gif").style.borderBottom = "0px";
             document.getElementById("gifts").style.display = "none";
 
+
         } else if (n === 7) {
 
-
+                   
+      
             document.getElementById("sdd").style.borderBottom = "0px";
             document.getElementById("sameDay").style.display = "none";
 
@@ -337,13 +353,15 @@ export const Navbar = () => {
 
                 <Link id={styles.logo} href="/" w="auto"     >
 
-                    <Image w="100%" h="60px" src="/websiteLogo.png" alt="website_logo" />
+                     <Image w="100%" h="60px" src={Logo} alt="website_logo" />
+                    
                 </Link>
 
                 <Box id={styles.search} position="relative" left="100px" display="flex" w='auto' >
                     <Input w="500px" type="text" placeholder="Enter Keyword or Product Number" />
                     <Button bg="purple.500" >Search</Button>
                 </Box>
+
 
 
                 <Box id={styles.userBtns} display="flex" justifyContent="space-between" ml="300px" w="300px"  >
@@ -399,9 +417,10 @@ export const Navbar = () => {
 
                     <Box display="flex" gap="5px" >
 
-                        <Button bg="purple.500" >Cart</Button> <Box border="2px solid black" w="40px" ><Text mt="5px" >{0}</Text></Box>
+                        <Button bg="purple.500" >Cart</Button> <Box border="2px solid black" w="40px" ><Text mt="5px" >{cart.length}</Text></Box>
                     </Box>
-                </Box>
+
+               
             </Box>
 
             <Box id={styles.category} borderTop="2px solid black" fontSize="lg" p="10px" display="flex" justifyContent="space-around"  >

@@ -2,7 +2,7 @@ const express = require("express");
 const {connection} = require("./configs/db");
 const {userRouter} = require("./Route/user.route");
 const {bestsellingRouter} = require("./Route/Products/Birthday/bestselling.route");
-const { authentication } = require("./Middleware/authenticate.middleware");
+// const { authentication } = require("./Middleware/authenticate.middleware");
 const { birthflowerRouter } = require("./Route/Products/Birthday/birthflower.route");
 const { allflowerRouter } = require("./Route/Products/Flowers/allflower.route");
 const { allsympathyRouter } = require("./Route/Products/Sympathy/allsympathy.route");
@@ -12,6 +12,8 @@ require("dotenv").config();
 const cors = require("cors");
 const { adminuserRouter } = require("./Route/adminuser.route");
 const { cartRouter } = require("./Route/cart.route");
+const { checkoutRouter } = require("./Route/checkout.route");
+const { birthdaycakeRouter } = require("./Route/Products/Birthday/birthdaycake.route");
 
 
 const app = express();
@@ -25,10 +27,13 @@ app.get("/", (req, res)=>{
 app.use("/adminusers", adminuserRouter);
 app.use("/users", userRouter);
 
-app.use(authentication);
+// app.use(authentication);
 
 //best Selling Birthday Gift
 app.use("/products/birthday", bestsellingRouter);
+
+//birthday cake
+app.use("/products/birthdaycake", birthdaycakeRouter);
 
 //birthday flower
 app.use("/products/birthflower", birthflowerRouter);
@@ -47,6 +52,9 @@ app.use("/products/bestflower", bestflowerRouter);
 
 //cart
 app.use("/cart", cartRouter);
+
+//checkout
+app.use("/checkout", checkoutRouter);
 
 
 app.listen(process.env.port, async()=>{

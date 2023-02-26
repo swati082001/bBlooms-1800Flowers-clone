@@ -1,13 +1,13 @@
-import { Box, Heading, Text, Image, Flex, Input, Button, Link } from "@chakra-ui/react";
-import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import { Box, Heading, Text, Image,  Input,  Link } from "@chakra-ui/react";
+//import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
     FormHelperText,
 } from '@chakra-ui/react'
+
 import { useState,useRef } from "react";
-import { FcApproval } from "react-icons/fc";
+
 import { useNavigate } from "react-router-dom";
 // import { GiSchoolBag, GiSuitcase } from "react-icons/gi";
 import { useToast } from '@chakra-ui/react';

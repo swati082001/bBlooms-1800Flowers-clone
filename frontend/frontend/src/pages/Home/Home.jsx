@@ -1,9 +1,11 @@
 import { Box, Link, Image, Heading, Text, Button, Select, Input } from "@chakra-ui/react";
+
 import styles from "../styles/Home.module.css";
 
 export const Home = () => {
 
     return <Box width="100vw"  h="auto" overflow="hidden" >
+
         <Box p="10px" border="1px solid red">
             <Link>PRESIDENTS DAY SALE: SAVE UP TO 40% | SHOP NOW </Link>
         </Box>
