@@ -1,46 +1,46 @@
 import {
-  USER_LOADING,
-  REMOVE_USER,
-  USER_ERROR,
-  USER_SUCCESS,
-} from "./user.actionTypes";
+  CART_LOADING,
+  REMOVE_CART,
+  CART_ERROR,
+  CART_SUCCESS,
+} from "./cart.actionTypes";
 
 let initialState = {
   loading: false,
   error: false,
-  users: [],
+  carts: [],
 };
 
-export let userReducer = (state = initialState, { type, payload }) => {
+export let cartReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case USER_LOADING: {
+    case CART_LOADING: {
       return {
         ...state,
         loading: true,
         error: false,
       };
     }
-    case REMOVE_USER: {
-      let filteredUser = state.users.filter((el) => el.id !== payload);
+    case REMOVE_CART: {
+      let filteredCart = state.carts.filter((el) => el.id !== payload);
       return {
         ...state,
         loading: false,
-        users: filteredUser,
+        carts: filteredCart,
       };
     }
-    case USER_ERROR: {
+    case CART_ERROR: {
       return {
         ...state,
         loading: false,
-        error:payload || true,
+        error: payload || true,
       };
     }
-    case USER_SUCCESS: {
+    case CART_SUCCESS: {
       return {
         ...state,
         loading: false,
         error: false,
-        users: payload,
+        carts: payload,
       };
     }
 

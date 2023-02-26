@@ -80,7 +80,10 @@ const LocationPage = () => {
           gap="20px"
         >
           {locations.map((el) => (
-            <Box boxShadow="rgba(99, 99, 99, 0.2) 0px 2px 8px 0px">
+            <Box
+              boxShadow="rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+              key={el.city}
+            >
               <Image width="200px" height="150px" src={el.img} alt={el.alt} />
 
               <Text fontSize="lg">{el.city}</Text>
