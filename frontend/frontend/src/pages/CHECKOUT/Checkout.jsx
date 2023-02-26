@@ -1,10 +1,11 @@
 import React,{useState,useMemo} from 'react'
 import Styles from "./Checkout.module.css"
 import Select from 'react-select'
-import { Box,Flex,Card,Text,Image,Button, FormControl,Input ,FormErrorMessage,FormHelperText,Divider,CardFooter,ListItem,UnorderedList} from '@chakra-ui/react'
+import { Box,Flex,Card,Text,Image, FormControl,Input ,FormErrorMessage,FormHelperText,Divider,CardFooter,ListItem,UnorderedList} from '@chakra-ui/react'
 import { DeleteIcon,CheckIcon} from '@chakra-ui/icons'
 import countryList from 'react-select-country-list'
 import CartFooter from '../CART/CartFooter'
+import { useToast } from '@chakra-ui/react'
 
 
 const Checkout = () => {
@@ -16,6 +17,8 @@ const Checkout = () => {
     const [city,setCity] = useState(''||"Bangalore")
     const[state,setState] = useState(''||"Karnataka")
     const [country,setCountry] = useState('')
+    const toast = useToast()
+    
     
 
     const options = useMemo(() => countryList().getData(), [])
@@ -44,6 +47,17 @@ const Checkout = () => {
         const NoLname = lname=== "";
         const Noaddress = address === "";
         const NoZip = zip === 0;
+
+        function checkoutToast(){
+          toast({
+            position: 'top',
+            title: 'Address has been successfully added',
+            description: "Now you can proceed to the payment portal",
+            status: 'success',
+            duration: 4000,
+            isClosable: true,
+          })
+        }
         
         function handleSubmit(event){
         event.preventDefault();
@@ -67,6 +81,12 @@ const Checkout = () => {
         setLocation('')
 
         console.log(obj);
+        
+        //should be invoked after the post request
+        setTimeout(()=>{checkoutToast()},3000)
+        
+        
+        
     }
 
 
@@ -130,7 +150,7 @@ const Checkout = () => {
                     </Flex>
 
                     <FormControl isRequired mt={"10px"}>
-                    <Select placeholder={"Location Name"||location} options={locationopt} value={location} onChange={changeLocation}> </Select>
+                    <Select placeholder={location || "Loaction Type"} options={locationopt} value={location} onChange={changeLocation}> </Select>
                     </FormControl>
 
                     <FormControl isRequired isInvalid={Noaddress} mt={"10px"}>
@@ -160,7 +180,7 @@ const Checkout = () => {
                     </Flex>
 
                     <FormControl mt={"10px"}>
-                    <Select placeholder={"Country Name"||country} options={options} value={country} onChange={changeHandler} />
+                    <Select placeholder={country || "Country Name"} options={options} value={country} onChange={changeHandler} />
                     </FormControl>
 
 
@@ -179,6 +199,9 @@ const Checkout = () => {
             </Box>
              {/* second part */}
           <Box width={{base:"100%",sm:"100%",md:"35%",lg:"43%"}} margin={"auto"}  h={{base:"auto",sm:"auto",md:"900px",lg:"900px"}} p={{base:4,sm:4,md:4,lg:4}} position={"sticky"} >
+              <Card  display={{sm:"none",md:"none",base:"none",large:"block"}} mt={"20px"} p={4} borderTop="2px solid #65388b">
+                <Text  textAlign={"center"} textStyle="Cardtop">Hello, Swati</Text>
+              </Card>
           
               <Card mt={"20px"} p={4} border="2px solid #65388b">
                 <Text mb={"20px"} textStyle="Cardtop">Order Summary</Text>
