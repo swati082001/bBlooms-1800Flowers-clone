@@ -42,4 +42,16 @@ cartRouter.post("/add-to-cart", async(req, res)=>{
 })
 
 
+cartRouter.delete("/delete/:id", async (req, res) =>{
+    try{
+        const ID = req.params.id;
+        await CartModel.findByIdAndDelete({_id:ID});
+        res.send({"msg":"Product has been deleted"});
+    }
+    catch(err){
+        res.status(400).send({"msg":err.message});
+    }
+})
+
+
 module.exports = {cartRouter};
