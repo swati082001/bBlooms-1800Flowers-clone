@@ -16,10 +16,11 @@ import {
   Text,
   WrapItem,
 } from "@chakra-ui/react";
-import {  Image, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Heading, Image, SimpleGrid, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 import {
+  ArrowRightIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
@@ -196,11 +197,13 @@ const BirthdayCake = () => {
           <div
             style={{
               marginLeft: "10px",
+              //   border: "1px solid red",
               height: "280px",
               width: "270px",
               backgroundColor: "#734f96",
               marginTop: "10px",
               borderRadius: "8px",
+              marginLeft: "10px",
             }}
           >
             <h3 style={{ color: "white", paddingTop: "15px", }}>

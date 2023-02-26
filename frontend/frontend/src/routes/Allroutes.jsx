@@ -3,16 +3,15 @@ import Cart from "../pages/CART/Cart"
 import {Routes,Route} from "react-router-dom"
 import Checkout from '../pages/CHECKOUT/Checkout'
 import { Home } from '../pages/Home/Home'
+import Birthday from '../pages/Birthday/ProductPage'
+import SingleProductPage from '../pages/Birthday/SingleProductPage'
 
 import BirthdayCake from '../pages/BirthdayCake/ProductPage'
+import SingleCake from '../pages/BirthdayCake/SingleProductPage'
 import Sympathy from '../pages/Sympathy/ProductPage'
 import { Login } from '../pages/Login/Login'
 import { Register } from '../pages/Register/Register'
 import Main from '../pages/CHECKOUT/Main'
-import Flower from '../pages/Occasion/ProductPage'
-import SingleFlower from '../pages/Occasion/SingleProductPage'
-import SingleCake from '../pages/BirthdayCake/SingleProductPage'
-import SinglePlant from '../pages/Sympathy/SingleProductPage'
 
 import Admin from '../pages/AdminPage/Admin'
 
@@ -34,6 +33,7 @@ const Allroutes = () => {
           <Route path='/sympathy/:id' element={<SinglePlant/>}/>
           <Route path='/birthdaycake/:id' element={<SingleCake/>}/>
           <Route path='/birthdaycake' element={<BirthdayCake/>}/>
+          <Route path='/singlecake' element={<SingleCake/>}/>
           <Route path='/checkout' element={<Main/>}/>
           
 
