@@ -42,6 +42,9 @@ const Dashboard = () => {
     dispatch(removeCart(id));
     getAgain();
   };
+  let sum = 0;
+  carts.map((el) => (sum = sum + el.price));
+  let ans = sum.toFixed(2);
 
   return (
     <div>
@@ -134,7 +137,7 @@ const Dashboard = () => {
                   color={"red"}
                   size={"md"}
                 >
-                  {`Total:-${carts.length}`}
+                  {`Total (${carts.length}) :- ₹ ${ans}`}
                 </Text>
               </Box>
             </Flex>
@@ -146,7 +149,7 @@ const Dashboard = () => {
                   <Th>ORDER ID</Th>
                   <Th>TYPE</Th>
 
-                  <Th>TOTAL PRICE</Th>
+                  <Th> PRICE</Th>
                   <Th>REMOVE</Th>
                 </Tr>
               </Thead>
