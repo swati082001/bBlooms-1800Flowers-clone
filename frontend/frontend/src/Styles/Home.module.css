@@ -1,0 +1,150 @@
+/*---------------------media queries---------------------------------------------*/
+
+@media only screen and (max-width: 1400px) {
+
+    #bannerBox {
+        width: 100vw;
+        height: 280px;
+    }
+
+    #heading {
+        left: 650px;
+    }
+
+    #perfectGift {
+        left: 200px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    #bannerBox {
+        width: 100vw;
+        height: 280px;
+    }
+
+    #heading {
+        left: 600px;
+    }
+
+    #perfectGift {
+        width: 80%;
+        left: 150px;
+    }
+
+    #perfectGift Input,
+    Select,
+    Button {
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+
+    #bannerBox {
+        width: 100vw;
+        height: 280px;
+    }
+
+    #heading {
+        left: 450px;
+    }
+    #perfectGift {
+        width: 80%;
+        left: 150px;
+    }
+    #perfectGift Text {
+        font-size: 10px;
+    }
+    #perfectGift Input,
+    Select,
+    Button,Text {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    #bannerBox {
+        width: 100vw;
+        height: 280px;
+    }
+
+    #heading {
+        left: 300px;
+    }
+    #perfectGift {
+        width: 80%;
+        left: 100px;
+    }
+    #perfectGift Text {
+        font-size: 10px;
+    }
+    #perfectGift Input,
+    Select,
+    Button,Text {
+        width: 70px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+
+    #bannerBox {
+        width: 100vw;
+        height: 280px;
+    }
+
+    #heading {
+        left: 100px;
+    }
+    #text1{
+        font-size: 20px;
+    }
+    .text2{
+        font-size: 10px;
+        height: 20px;
+    }
+    #perfectGift {
+        width: 80%;
+        left: 70px;
+    }
+    #perfectGift Text {
+        font-size: 10px;
+    }
+    #perfectGift Input,
+    Select,
+    Button,Text {
+        width: 70px;
+    }
+    #excluGifts{
+        overflow-x: hidden;
+        margin: auto;
+        margin-top: 100px;
+      font-size: 10px;
+    }
+}   
+
+@media only screen and (max-width: 450px) {
+
+    #bannerBox {
+        width: 100vw;
+        height: 280px;
+    }
+
+    #heading {
+        left: 30px;
+        font-size: 20px;
+    }
+    #perfectGift {
+        width: 80%;
+        left: 50px;
+    }
+    #perfectGift Text {
+        font-size: 10px;
+    }
+    #perfectGift Input,
+    Select,
+    Button,Text {
+        width: 70px;
+    }
+}
