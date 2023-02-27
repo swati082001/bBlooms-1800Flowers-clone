@@ -78,4 +78,7 @@ https://bblooms.vercel.app/
 
 <h5>✨Admin page</h5>
 <img src="https://github.com/swati082001/inquisitive-discovery-2388/blob/master/glimpse%20of%20projects/admin%20.png"/>
+<img src="https://github.com/swati082001/inquisitive-discovery-2388/blob/master/glimpse%20of%20projects/adim%20product%20chart.png"/>
+<img src="https://github.com/swati082001/inquisitive-discovery-2388/blob/master/glimpse%20of%20projects/admin%20register.png"/>
+<img src="https://github.com/swati082001/inquisitive-discovery-2388/blob/master/glimpse%20of%20projects/admin%20user%20details.png"/>
 
