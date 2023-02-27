@@ -5,7 +5,7 @@
 It is an E-commerce website where you can buy Products related to occasions like birthday, sympathy, wedding anniversay, funeral service etc. Product range include flowers, bouquets, cakes, gifts and decoration services related to differennt occasions. We tried to implement all the feature mentioned below, using the tech-Stacks mentioned below. It is s fully functional and responsive website.
 
 <h2>Deployed Link</h2>
-https://vaibhav-firke-makes-great-sites-e8301.netlify.app/
+https://bblooms.vercel.app/
 
 <h2>Team Members</h2>
 1. Swati [ Frontend ] <br>
