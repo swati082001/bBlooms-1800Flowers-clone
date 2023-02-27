@@ -1,11 +1,12 @@
 import React from 'react'
 import Cart from "../pages/CART/Cart"
 import {Routes,Route} from "react-router-dom"
-import Checkout from '../pages/CHECKOUT/Checkout'
-import { Home } from '../pages/Home/Home'
-import Birthday from '../pages/Birthday/ProductPage'
-import SingleProductPage from '../pages/Birthday/SingleProductPage'
 
+import { Home } from '../pages/Home/Home'
+
+import Flower from "../pages/Occasion/ProductPage"
+import SingleFlower from "../pages/Occasion/SingleProductPage"
+import SinglePlant from "../pages/Sympathy/SingleProductPage"
 import BirthdayCake from '../pages/BirthdayCake/ProductPage'
 import SingleCake from '../pages/BirthdayCake/SingleProductPage'
 import Sympathy from '../pages/Sympathy/ProductPage'

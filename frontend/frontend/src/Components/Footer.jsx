@@ -1,5 +1,5 @@
 import { Box, Link, Text, Image } from "@chakra-ui/react";
-import styles from "../styles/Footer.module.css";
+import styles from "../Styles/Footer.module.css";
 
 export const Footer = () => {
 

@@ -31,6 +31,7 @@ import {
   BreadcrumbLink,
   Breadcrumb,
   HStack,
+  Link,useToast
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -39,7 +40,7 @@ import { useParams } from "react-router-dom";
   const SinglePlant = () => {
   let [prod, setprod] = useState([]);
   const [value, setValue] = React.useState("1");
-  
+  const toast = useToast()
   
   let params= useParams();
   console.log(params.id)
@@ -58,36 +59,11 @@ import { useParams } from "react-router-dom";
   };
 
  
-    // fetch("https://weary-red-oyster.cyclic.app/cart/add-to-cart, {
-    //   method: "POST",
-    //   body: JSON.stringify(payload),
-    //   headers: {
-    //     "Content-type": "application/json",
-    //     // Authorization: "",
-    //     // localStorage.getItem("currentUser")
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((res) => console.log(res) )
-    //   .catch((err) => console.log(err));
-    //  }
-
+    
 
     const handleAdd = async(prod)=>{
       console.log(prod)
 
-     
-
-      // let res =await axios({
-      //   method :"post",
-      //   url:"https://weary-red-oyster.cyclic.app/cart/add-to-cart",
-      //   data:payload,
-      //   // headers:{
-      //   //   Authorization:token
-      //   // }
-      // })
-
-  // console.log(payload);
       axios.post(`https://weary-red-oyster.cyclic.app/cart/add-to-cart`,{
         // "product_id":prod._id,
         // "price":prod.price
@@ -102,6 +78,15 @@ import { useParams } from "react-router-dom";
       .then((res)=> console.log(res))
       .catch((err)=> console.log(err))
 
+      toast({
+        title: 'Item has been added to cart.',
+        description: "Item has been successfully added to cart.",
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+        position:"top"
+      })
+
     }
 
 
@@ -114,14 +99,17 @@ import { useParams } from "react-router-dom";
 
   
   return (
-    <div>
-     
-
+    <Box >
+      <Box p="10px" border="1px solid red">
+            <Link>PRESIDENTS DAY SALE: SAVE UP TO 40% | SHOP NOW </Link>
+        </Box>
+      
       <Breadcrumb
         color="#65388B"
         spacing="3px"
         fontSize={14}
         ml={4}
+        mt="90px"
         separator={<ChevronRightIcon />}
       >
         <BreadcrumbItem>
@@ -143,7 +131,7 @@ import { useParams } from "react-router-dom";
         </BreadcrumbItem>
       </Breadcrumb>
 
-      <Stack
+      <Stack 
         direction={{ base: "column", md: "row" }}
         // border="10px solid teal"
 
@@ -405,7 +393,7 @@ import { useParams } from "react-router-dom";
           </div>
         </Box>
       </Stack>
-    </div>
+    </Box>
   );
 };
 

@@ -30,7 +30,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Breadcrumb,
-  HStack,
+  HStack,Link, useToast
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -39,6 +39,7 @@ import { useParams } from "react-router-dom";
 const SingleFlower = () => {
   let [prod, setprod] = useState([]);
   const [value, setValue] = React.useState("1");
+  const toast = useToast()
 
   let params= useParams();
   console.log(params.id)
@@ -57,34 +58,9 @@ const SingleFlower = () => {
   };
 
  
-    // fetch("https://weary-red-oyster.cyclic.app/cart/add-to-cart, {
-    //   method: "POST",
-    //   body: JSON.stringify(payload),
-    //   headers: {
-    //     "Content-type": "application/json",
-    //     // Authorization: "",
-    //     // localStorage.getItem("currentUser")
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((res) => console.log(res) )
-    //   .catch((err) => console.log(err));
-    //  }
-
-
     const handleAdd = async(prod)=>{
       console.log(prod)
 
-     
-
-      // let res =await axios({
-      //   method :"post",
-      //   url:"https://weary-red-oyster.cyclic.app/cart/add-to-cart",
-      //   data:payload,
-        
-      // })
-
-  // console.log(payload);
       axios.post(`https://weary-red-oyster.cyclic.app/cart/add-to-cart`,{
         // "product_id":prod._id,
         // "price":prod.price
@@ -98,6 +74,15 @@ const SingleFlower = () => {
        }})
       .then((res)=> console.log(res))
       .catch((err)=> console.log(err))
+
+      toast({
+        title: 'Item has been added to cart.',
+        description: "Item has been successfully added to cart.",
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+        position:"top"
+      })
 
     }
 
@@ -114,26 +99,16 @@ const SingleFlower = () => {
 
   return (
     <div>
-      {/* <p
-        style={{
-          marginLeft: "10px",
-          textAlign: "left",
-          fontSize: "14px",
-          color: "#65388B",
-          marginTop: "10px",
-          cursor: "pointer",
-        }}
-      >
-        Home <ArrowRightIcon boxSize={2} /> Birthday{" "}
-        <ArrowRightIcon boxSize={2} /> Birthday flower{" "}
-        <ArrowRightIcon boxSize={2} /> Floral Embrace™
-      </p> */}
+      <Box  p="10px" border="1px solid red">
+            <Link>PRESIDENTS DAY SALE: SAVE UP TO 40% | SHOP NOW </Link>
+        </Box>
 
       <Breadcrumb
         color="#65388B"
         spacing="3px"
         fontSize={14}
         ml={4}
+        mt="90px"
         separator={<ChevronRightIcon />}
       >
         <BreadcrumbItem>

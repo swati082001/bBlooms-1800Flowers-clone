@@ -94,11 +94,14 @@ const Flower = () => {
 
   return (
     <>
+      <Box p="10px" border="1px solid red">
+            <Link>PRESIDENTS DAY SALE: SAVE UP TO 40% | SHOP NOW </Link>
+        </Box>
       <div
         style={{
           gap: "30px",
           display: "flex",
-          marginTop: "30px",
+          marginTop: "80px",
           //  border: "3px solid red",
         }}
       >

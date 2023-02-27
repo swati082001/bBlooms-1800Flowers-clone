@@ -2,9 +2,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
-import { Footer } from './components/Footer';
-import { Navbar } from './components/Navbar';
-import { MainRoute } from './Routes/MainRoutes';
+import {Footer} from "./Components/Footer"
+import { Navbar } from './Components/Navbar';
+import Allroutes from './routes/Allroutes';
 
 function App() {
 
@@ -17,10 +17,15 @@ function App() {
 
       if(location){
     
-        if(location.pathname === "/register" || location.pathname === "/login" || location.pathname === "/checkout" || location.pathname === "/admin" ){
+        if(location.pathname === "/register" || location.pathname === "/login" || location.pathname === "/checkout" || location.pathname === "/admin"  ){
           setVisibleNav(false);
           setVisibleFooter(false);
-        }else{
+        }
+        else if(location.pathname==="/cart"){
+          setVisibleNav(true);
+          setVisibleFooter(false);
+        }
+        else{
           setVisibleNav(true);
           setVisibleFooter(true);
         }
@@ -30,7 +35,7 @@ function App() {
   return (
     <div className="App">
       { visibleNav && <Navbar />}
-       <MainRoute />
+       <Allroutes />
       { visibleFooter && <Footer />} 
     </div>
   );

@@ -1,6 +1,6 @@
 import { Box, Link, Image, Heading, Text, Button, Select, Input } from "@chakra-ui/react";
 
-import styles from "../styles/Home.module.css";
+import styles from "../../Styles/Home.module.css";
 
 export const Home = () => {
 

@@ -25,6 +25,7 @@ let rootReducer = combineReducers({
   cart:CARTREDUCER,
   checkout:checkoutReducer
 });
+
 let composeEnhancer = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 
 export let store = legacy_createStore(

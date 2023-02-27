@@ -3,11 +3,13 @@ import Checkout from './Checkout'
 import { Box, Image ,Flex,Text} from '@chakra-ui/react'
 import Logo from "../../assets/logo.png"
 import Payment from '../PAYMENT/Payment'
+import { useNavigate } from 'react-router-dom'
 
 const Main = () => {
     const [checkout,setCheckout] = React.useState(true)
     const [payment,setpayment] = React.useState(false)
     const [review,setReview] = React.useState(false)
+    const navigate = useNavigate()
 
     function handlecheckout(){
         setCheckout(true)
@@ -26,12 +28,15 @@ const Main = () => {
         setpayment(false)
         setReview(true)
     }
+    function handleImage(){
+      navigate("/")
+    }
   return (
     <div>
         <Box width={{base:"100%",sm:"100%",md:"100%",lg:"100%"}} bg={"white"}>
        <Flex direction={{base:"column",sm:"column",md:"row",lg:"row"}} justifyContent={{base:"center",sm:"center",md:"space-between",lg:"space-evenly"}} alignItems={{base:"center",sm:"center",md:"",lg:""}}>
 
-      <Image width={{base:"20%",sm:"20%",md:"10%",lg:"8%"}} ml={"10px"} src={Logo} alt=""/>
+      <Image onClick={handleImage} width={{base:"20%",sm:"20%",md:"10%",lg:"8%"}} ml={"10px"} src={Logo} alt=""/>
 
          <Box ml={{lg:"400px",base:"0px",sm:"",md:-1}} width={"50%"}>
           <Flex direction={{base:"row",sm:"row",md:"row",lg:"row"}} justifyContent={{base:"space-between",sm:"",md:"space-around",lg:"initial"}}>

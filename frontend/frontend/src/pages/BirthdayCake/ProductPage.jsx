@@ -83,11 +83,14 @@ const BirthdayCake = () => {
 
   return (
     <>
+    <Box p="10px" border="1px solid red">
+            <Link>PRESIDENTS DAY SALE: SAVE UP TO 40% | SHOP NOW </Link>
+        </Box>
       <div
         style={{
           gap: "15px",
           display: "flex",
-          marginTop: "30px",
+          marginTop: "80px",
         //   border: "1px solid black",
         }}
       >
