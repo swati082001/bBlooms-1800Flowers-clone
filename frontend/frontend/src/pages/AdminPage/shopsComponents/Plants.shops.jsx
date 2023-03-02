@@ -30,7 +30,7 @@ import {
   getPlant,
   removePlant,
   updatePlant,
-} from "../../../redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
+} from "../../../Redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
 const PlantShops = () => {
   let [id, setId] = useState("");
   let [price, setPrice] = useState("");

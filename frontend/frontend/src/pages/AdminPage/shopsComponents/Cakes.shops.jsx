@@ -32,7 +32,7 @@ import {
   getCake,
   removeCake,
   updateCake,
-} from "../../../redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+} from "../../../Redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
 
 const CakeShops = () => {
   let [id, setId] = useState("");

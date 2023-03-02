@@ -33,19 +33,21 @@ import { FcPositiveDynamic } from "react-icons/fc";
 import FlowerShops from "../shopsComponents/Flowers.shops";
 import CakeShops from "../shopsComponents/Cakes.shops";
 import PlantShops from "../shopsComponents/Plants.shops";
+
 import {
   addCake,
   getCake,
-} from "../../../redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+} from "../../../Redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+
 import {
   addFlower,
   getFlower,
-} from "../../../redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
+} from "../../../Redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
+
 import {
   addPlant,
   getPlant,
-} from "../../../redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
-
+} from "../../../Redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
 const Shops = () => {
   let [flower, setFlower] = useState(true);
   let [cake, setCake] = useState(false);

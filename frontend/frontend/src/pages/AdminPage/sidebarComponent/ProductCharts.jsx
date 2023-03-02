@@ -12,9 +12,10 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { getFlower } from "../../../redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
-import { getCake } from "../../../redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
-import { getPlant } from "../../../redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
+
+import { getFlower } from "../../../Redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
+import { getCake } from "../../../Redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+import { getPlant } from "../../../Redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
 const ProductCharts = () => {
   let dispatch = useDispatch();
   let { flowers } = useSelector((store) => store.flowerManager);

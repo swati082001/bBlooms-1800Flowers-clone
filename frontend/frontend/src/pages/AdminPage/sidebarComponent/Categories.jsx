@@ -1,9 +1,11 @@
 import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFlower } from "../../../redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
-import { getCake } from "../../../redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
-import { getPlant } from "../../../redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
+
+import { getFlower } from "../../../Redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
+import { getCake } from "../../../Redux/AdminRedux/Products/BirthDayCakes/BirthDayCakes.action";
+import { getPlant } from "../../../Redux/AdminRedux/Products/SympathyPlants/SympathyPlants.action";
+
 const Categories = () => {
   let { cakes } = useSelector((store) => store.cakeManager);
   let { flowers } = useSelector((store) => store.flowerManager);

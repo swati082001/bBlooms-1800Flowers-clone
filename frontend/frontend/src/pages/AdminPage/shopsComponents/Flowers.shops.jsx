@@ -30,7 +30,7 @@ import {
   getFlower,
   removeFlower,
   updateFlower,
-} from "../../../redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
+} from "../../../Redux/AdminRedux/Products/AnniversaryFlowers/AnniversaryFlowers.action";
 
 const FlowerShops = () => {
   let [id, setId] = useState("");

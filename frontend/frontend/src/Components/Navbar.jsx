@@ -16,7 +16,7 @@ import {
     MenuItem,
 } from '@chakra-ui/react';
 import Logo from ".././assets/logo.png"
-import {getCart} from "../redux/CART-REDUX/cart.action"
+import {getCart} from "../Redux/CART-REDUX/cart.action"
 import { useSelector, useDispatch } from "react-redux";
 import {
     Drawer,
